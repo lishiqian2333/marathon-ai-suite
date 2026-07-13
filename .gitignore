@@ -1,6 +1,7 @@
 node_modules/
 dist/
 .next/
+.wrangler/
 .agents/
 .upload-staging/
 .git.local-backup/
