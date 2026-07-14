@@ -84,6 +84,16 @@ const content: Record<Scene, { title: string; subtitle: string; date: string; fo
 
 function Icon({ children }: { children: React.ReactNode }) { return <span className="icon">{children}</span>; }
 function defaultEventInfo(scene:Scene):EventInfo { const x=content[scene]; return {title:x.title,subtitle:x.subtitle,date:x.date.split(" ")[0],scale:"40,000人",focus:x.focus}; }
+function hasKnownValue(value:string) { const normalized=value.trim(); return Boolean(normalized) && normalized!=="待补充"; }
+function applyConfirmedFacts(draft:string,info:EventInfo) {
+ const cleaned=draft.split("\n").map(line=>{
+   if(/(?:报名时间|比赛时间|领取时间)|(?:20\d{2}年)?\d{1,2}月\d{1,2}日|\d{1,2}月\d{1,2}日|\d{1,2}日至\d{1,2}日/.test(line)) return "";
+   if(/(?:计划(?:招募|迎接)|和)?[\d,，]+名?(?:参赛选手|跑者|人)/.test(line)) return "";
+   return line;
+ }).join("\n").replace(/\n{3,}/g,"\n\n").trim();
+ const facts=[hasKnownValue(info.date)?`赛事日期：${info.date}`:"",hasKnownValue(info.scale)?`赛事规模：${info.scale}`:""].filter(Boolean);
+ return facts.length?`${cleaned}\n\n【赛事信息】\n${facts.join("\n")}`:cleaned;
+}
 function buildArticle(item:(typeof content)[Scene],tone:Tone,info:EventInfo,range:LengthRange) {
  const minimum=Number(range.split("-")[0]); const blocks=[
  "这不仅是一场关于速度与耐力的较量，也是跑者与城市彼此认识的机会。赛事将体育精神、城市风貌和大众参与连接起来，让每一位选手在脚步向前的过程中感受沿途的景观、文化与热情。",
@@ -96,7 +106,7 @@ function buildArticle(item:(typeof content)[Scene],tone:Tone,info:EventInfo,rang
  "赛事也将成为展示城市活力的一扇窗口。来自不同地区的跑者将在同一条赛道相遇，以奔跑感受城市发展，以交流传递体育友谊。",
  "组委会提醒，赛事日期、竞赛项目、参赛规模及现场服务可能根据实际情况调整。重要决定请以正式发布的竞赛规程、补充通知和官方公告为准。",
  `现在，属于${info.title}的脚步已经临近。期待每一位参赛者带着充分准备抵达起点，也期待更多市民关注赛事、参与赛事、分享赛事。`];
- let draft=item.body[tone]; for(const b of blocks){if(draft.length>=minimum+80)break;draft+=`\n\n${b}`;} return draft;
+ let draft=applyConfirmedFacts(item.body[tone],info); for(const b of blocks){if(draft.length>=minimum+80)break;draft+=`\n\n${b}`;} return draft;
 }
 
 export default function Home() {
@@ -120,7 +130,7 @@ export default function Home() {
 
   const checks = useMemo(() => [
     { ok: Boolean(eventInfo.title.trim()), label: "赛事名称", text: eventInfo.title || "请填写赛事名称" },
-    { ok: Boolean(eventInfo.date.trim()), label: "时间信息", text: eventInfo.date || "请填写赛事日期" },
+    { ok: hasKnownValue(eventInfo.date), label: "时间信息", text: hasKnownValue(eventInfo.date) ? eventInfo.date : "请填写赛事日期" },
     { ok: article.includes("官方") || article.includes("为准"), label: "免责声明", text: article.includes("官方") || article.includes("为准") ? "已提示以官方公告为准" : "建议补充官方口径提示" },
     { ok: !/第一|唯一|保证|绝对/.test(article), label: "宣传表达", text: "未发现绝对化高风险用语" },
   ], [article, eventInfo]);
@@ -325,11 +335,13 @@ function VideoDemo({eventInfo}:{eventInfo:EventInfo}) {
     <aside className="photo-rail video-chat-rail">
       <div className="panel-heading"><span>01</span><div><b>AI 视频创作助手</b><small>通过对话完成照片成片</small></div></div>
       <div className="video-chat-messages">{messages.slice(-5).map((message,index)=><div className={`video-bubble ${message.role}`} key={`${message.text}-${index}`}>{message.role==="ai"&&<span>AI</span>}<p>{message.text}</p></div>)}</div>
-      <div className="chat-import-actions"><label><input type="file" accept="image/*" multiple onChange={importFiles}/><span>＋</span>导入照片</label><button onClick={()=>loadAssets(demoAssets)}>导入演示照片</button></div>
-      <form className="video-chat-input" onSubmit={sendPrompt}><textarea value={prompt} onChange={e=>setPrompt(e.target.value)} placeholder={assets.length?"例如：做成15秒热血宣传片……":"请先导入照片……"}/><div><span>{assets.length?`已导入 ${assets.length} 张照片`:"尚未导入素材"}</span><button type="submit" disabled={!prompt.trim()}>↑</button></div></form>
-      <button className="chat-generate" disabled={!assets.length||stage==="analyzing"||stage==="editing"} onClick={generate}><span>✦</span>{stage==="analyzing"||stage==="editing"?"正在生成视频…":"确认并生成视频"}</button>
       {assets.length>0&&<div className="asset-count"><span><i/>已导入 {assets.length} 张</span><em>质量检查通过</em></div>}
       <div className="photo-list">{assets.map((asset,index)=><button key={`${asset.name}-${index}`} className={selected===index?"active":""} onClick={()=>setSelected(index)}><img src={asset.src} alt={asset.label}/><span><b>{String(index+1).padStart(2,"0")} · {asset.label}</b><small>{asset.name}</small></span><em>✓</em></button>)}</div>
+      <div className="video-chat-composer">
+        <div className="chat-import-actions"><label><input type="file" accept="image/*" multiple onChange={importFiles}/><span>＋</span>导入照片</label><button onClick={()=>loadAssets(demoAssets)}>导入演示照片</button></div>
+        <form className="video-chat-input" onSubmit={sendPrompt}><textarea value={prompt} onChange={e=>setPrompt(e.target.value)} placeholder={assets.length?"例如：做成15秒热血宣传片……":"请先导入照片……"}/><div><span>{assets.length?`已导入 ${assets.length} 张照片`:"尚未导入素材"}</span><button type="submit" disabled={!prompt.trim()}>↑</button></div></form>
+        <button className="chat-generate" disabled={!assets.length||stage==="analyzing"||stage==="editing"} onClick={generate}><span>✦</span>{stage==="analyzing"||stage==="editing"?"正在生成视频…":"确认并生成视频"}</button>
+      </div>
     </aside>
     <section className="creation-stage">
       <div className="creation-head"><div><span className="step">02</span><p><b>AI 照片成片</b><small>{stage==="empty"?"新建视频任务":`${eventName} · 15 秒横版宣传片`}</small></p></div><span className={`stage-pill ${stage}`}><i/>{statusText}</span></div>
