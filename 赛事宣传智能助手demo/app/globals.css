@@ -167,6 +167,8 @@
   .ppt-main{padding:12px 18px 18px}.ppt-deck{height:calc(100vh - 126px)}
 }
 
+.module-loading{min-height:calc(100vh - 70px);display:flex;align-items:center;justify-content:center;gap:10px;background:var(--bg);color:var(--green)}.module-loading span{animation:think 1s infinite ease-in-out}.module-loading p{margin:0;font-size:13px}
+
 /* Keep the video and PPT canvases flush with the live browser viewport. */
 @media(min-width:781px){
   .app-shell{
