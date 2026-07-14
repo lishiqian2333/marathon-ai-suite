@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { creativeDirections, creativeProducts, mockCreativeDesigns, type CreativeBrief, type CreativeDesign, type CreativeProduct } from "../lib/creative-assets";
 
 type Scene = "signup" | "route" | "guide";
 type Tone = "official" | "passion" | "culture" | "young";
@@ -182,13 +183,13 @@ export default function Home() {
       <div className="brand-copy"><strong>AI 智能宣传内容创作平台</strong><span>AI CONTENT CREATION PLATFORM</span></div>
       <nav className="module-nav" aria-label="产品模块">
         <button className={productModule === "copy" ? "active" : ""} onClick={() => setProductModule("copy")}><span>文</span>公众号宣传文案</button>
-        <button className={productModule === "video" ? "active" : ""} onClick={() => setProductModule("video")}><span>影</span>宣传视频方案<em>规划中</em></button>
-        <button className={productModule === "ppt" ? "active" : ""} onClick={() => setProductModule("ppt")}><span>报</span>汇报 PPT<em>规划中</em></button>
-        <button className={productModule === "creative" ? "active" : ""} onClick={() => setProductModule("creative")}><span>创</span>文创产品设计<em>规划中</em></button>
+        <button className={productModule === "video" ? "active" : ""} onClick={() => setProductModule("video")}><span>影</span>照片生成视频<em>Demo</em></button>
+        <button className={productModule === "ppt" ? "active" : ""} onClick={() => setProductModule("ppt")}><span>报</span>汇报 PPT<em>Demo</em></button>
+        <button className={productModule === "creative" ? "active" : ""} onClick={() => setProductModule("creative")}><span>创</span>文创产品设计<em>Demo</em></button>
       </nav>
     </header>
 
-    {productModule === "video" ? <VideoDemo eventInfo={eventInfo} /> : productModule !== "copy" ? <ModulePreview module={productModule} onBack={() => setProductModule("copy")} /> : <section className="workspace">
+    {productModule === "video" ? <VideoDemo eventInfo={eventInfo} /> : productModule === "ppt" ? <PptDemo /> : productModule === "creative" ? <CreativeDemo /> : <section className="workspace">
       <aside className="setup-panel">
         <div className="panel-heading"><span>01</span><div><b>创建宣传任务</b><small>选择场景，补充赛事信息</small></div></div>
         <label className="field-label">宣传场景</label>
@@ -250,110 +251,164 @@ export default function Home() {
   </main>;
 }
 
-const modulePlans: Record<Exclude<ProductModule,"copy">,{eyebrow:string;title:string;description:string;steps:string[];output:string}> = {
-  video:{eyebrow:"宣传视频方案 · 下一阶段",title:"从赛事资料到成片脚本的一站式工作台",description:"先完成脚本、分镜与素材编排，再逐步接入数字人口播和智能成片，最适合成为文案模块之后的第二个演示能力。",steps:["AI 视频脚本与时长控制","镜头分镜、字幕及口播稿","素材清单与成片版本管理"],output:"建议首版：生成 30 秒宣传片脚本 + 6 镜头分镜"},
-  creative:{eyebrow:"文创产品设计 · 能力规划",title:"让赛事视觉资产快速形成系列",description:"围绕赛事主视觉延展奖牌、服装、号码布和纪念品概念，重点解决设计方向发散与方案汇报。",steps:["输入赛事主题与文化元素","生成设计方向及视觉关键词","输出文创效果图与设计说明"],output:"建议首版：奖牌与参赛服概念提案"},
-  ppt:{eyebrow:"汇报 PPT · 能力规划",title:"把赛事进展自动整理成可汇报材料",description:"读取策划案、传播数据与阶段成果，自动生成结构清晰、口径统一的领导汇报演示。",steps:["上传赛事方案与传播数据","生成汇报大纲和核心结论","套用模板并输出可编辑 PPT"],output:"建议首版：赛前宣传方案汇报（10—12 页）"}
-};
+type CreativeStage = "brief" | "analyzing" | "directions" | "done";
 
-function ModulePreview({module,onBack}:{module:Exclude<ProductModule,"copy">;onBack:()=>void}) {
-  const plan=modulePlans[module];
-  return <section className={`module-preview ${module}`}><div className="module-preview-card"><div className="module-preview-copy"><span className="module-eyebrow">{plan.eyebrow}</span><h1>{plan.title}</h1><p>{plan.description}</p><div className="module-steps">{plan.steps.map((step,index)=><div key={step}><b>0{index+1}</b><span>{step}</span></div>)}</div><button onClick={onBack}>返回宣传文案 Demo</button></div><div className="module-blueprint"><span>首版演示建议</span><strong>{plan.output}</strong><div className="blueprint-lines"><i/><i/><i/></div><small>沿用同一套赛事资料与品牌口径，四个模块之间可共享内容资产</small></div></div></section>;
+function CreativeDemo(){
+  const [brief,setBrief]=useState<CreativeBrief>({name:"鹏飞集团杯·氢筑新程马拉松",theme:"氢筑新程，为爱奔跑",values:"绿色低碳 / 公益感恩 / 全民健身 / 城市传播",culture:"太原古县城 / 晋阳文化 / 古建筑 / 非遗元素",brand:"鹏飞集团 / 氢能源 / 绿色发展",charity:"为带给你阳光的人奔跑"});
+  const [product,setProduct]=useState<CreativeProduct>("medal");
+  const [direction,setDirection]=useState(creativeDirections[0].id);
+  const [stage,setStage]=useState<CreativeStage>("brief");
+  const [progress,setProgress]=useState(0);
+  const [design,setDesign]=useState<CreativeDesign|null>(null);
+  const [preview,setPreview]=useState(false);
+  const update=(key:keyof CreativeBrief,value:string)=>setBrief(x=>({...x,[key]:value}));
+  const designs=mockCreativeDesigns(brief);
+  useEffect(()=>{if(stage!=="analyzing"&&stage!=="directions")return;const timer=window.setInterval(()=>setProgress(p=>{const next=Math.min(100,p+2);if(next>=58&&stage==="analyzing")setStage("directions");if(next===100){setDesign(mockCreativeDesigns(brief).find(x=>x.product===product)!);setStage("done")}return next}),45);return()=>window.clearInterval(timer)},[stage,brief,product]);
+  function generate(){setProgress(2);setDesign(null);setStage("analyzing")}
+  function chooseProduct(next:CreativeProduct){setProduct(next);setDesign(designs.find(x=>x.product===next)!)}
+  const status=stage==="brief"?"等待生成":stage==="analyzing"?"AI 文化解析中":stage==="directions"?"正在生成设计方向":"文创体系已生成";
+  return <section className="creative-workspace">
+    <aside className="creative-brief">
+      <div className="panel-heading"><span>01</span><div><b>赛事信息输入</b><small>构建 AI 文创设计 Brief</small></div></div>
+      <div className="brief-scroll">
+        {([ ["name","赛事名称"],["theme","赛事主题"],["values","赛事理念"],["culture","城市文化"],["brand","企业元素"],["charity","公益主题"] ] as [keyof CreativeBrief,string][]).map(([key,label])=><label className="creative-field" key={key}><span>{label}<i>已识别</i></span>{key==="name"||key==="theme"||key==="charity"?<input value={brief[key]} onChange={e=>update(key,e.target.value)}/>:<textarea value={brief[key]} onChange={e=>update(key,e.target.value)}/>}</label>)}
+        <div className="brief-insight"><span>✦</span><p><b>AI 已识别 12 个核心元素</b><small>绿色氢能、晋阳古城与公益阳光，可形成科技、文化、情感三条差异化设计路线。</small></p></div>
+      </div>
+      <button className="creative-generate" onClick={generate} disabled={stage==="analyzing"||stage==="directions"}><span>✦</span>{stage==="done"?"重新生成设计方案":"生成设计方案"}</button>
+    </aside>
+    <main className="creative-main">
+      <div className="creative-head"><div><span className="step">02</span><p><b>AI 赛事文创设计方案中心</b><small>{brief.name} · 全品类设计体系</small></p></div><span className={`stage-pill ${stage}`}><i/>{status}</span></div>
+      {stage==="brief"?<div className="creative-empty"><div className="creative-orbit"><span>AI</span><i/><i/><i/></div><h2>让赛事文化变成一套文创体系</h2><p>AI 将先解析城市、品牌与公益文化，再生成多条设计方向和四类文创产品方案。</p><div><i>1</i>AI文化解析<b>→</b><i>2</i>设计方向<b>→</b><i>3</i>文创体系</div></div>:stage!=="done"?<div className="creative-process-board"><div className="process-title"><span>✦</span><div><small>STEP 01 / AI CULTURE ANALYSIS</small><h2>{stage==="analyzing"?"AI 文化解析":"设计方向生成"}</h2><p>{stage==="analyzing"?"正在理解赛事背后的城市文脉、企业基因与公益价值":"文化基因已完成聚类，正在形成三条差异化视觉路线"}</p></div><b>{progress}%</b></div><div className="creative-progress"><i><b style={{width:`${progress}%`}}/></i></div><div className="culture-analysis">{["正在分析赛事文化...","已识别城市文化元素","已提取视觉符号","已匹配企业品牌元素","已融合公益主题"].map((x,i)=><div className={progress>i*11+5?"done":""} key={x}><i>{progress>i*11+5?"✓":"·"}</i><span>{x}</span><small>{["太原古县城 · 晋阳文化","古建筑纹样 · 城墙轮廓","奔跑轨迹 · 东方纹样","鹏飞集团 · 氢能源绿色科技","阳光 · 爱心 · 公益奔跑"][i]}</small></div>)}</div>{stage==="directions"&&<div className="direction-preview">{creativeDirections.map(item=><article key={item.id}><em>方案 {item.code}</em><b>{item.name}</b><span>{item.keywords.join(" · ")}</span></article>)}</div>}</div>:design&&<>
+        <div className="creative-summary"><span>✦ AI 文化理解</span><p>已识别 <b>太原古县城、晋阳文化、古建筑纹样、氢能源绿色科技、公益奔跑</b> 五组核心文化基因，并自动形成完整产品体系。</p><em>4 类方案已生成</em></div>
+        <section className="direction-section"><div className="creative-section-head"><div><small>STEP 02</small><b>设计方向生成</b></div><span>选择方向可统一整套文创的视觉语言</span></div><div className="direction-grid">{creativeDirections.map(item=><button className={direction===item.id?"active":""} onClick={()=>setDirection(item.id)} key={item.id}><em>方案 {item.code}</em><b>{item.name}</b><p>{item.summary}</p><span>{item.keywords.map(x=><i key={x}>{x}</i>)}</span></button>)}</div></section>
+        <section className="product-section"><div className="creative-section-head"><div><small>STEP 03</small><b>文创产品体系</b></div><span>已按「{creativeDirections.find(x=>x.id===direction)?.name}」完成视觉适配</span></div><div className="product-category-grid">{designs.map(item=><button className={product===item.product?"active":""} onClick={()=>chooseProduct(item.product)} key={item.product}><span>{({medal:"奖",shirt:"衣",mascot:"IP",poster:"画"} as Record<CreativeProduct,string>)[item.product]}</span><b>{creativeProducts[item.product]}</b><small>{item.design_name}</small><i>查看方案 →</i></button>)}</div></section>
+        <article className="concept-card creative-result-card">
+          <div className="product-mock local-product"><img src={design.image} alt={`${design.design_name}${creativeProducts[product]}效果图`}/><span className="render-tag">本地 AI 设计素材</span></div>
+          <div className="concept-copy"><header><span>STEP 04 / PRODUCT DESIGN</span><h3>{design.design_name}</h3><small>{design.label}</small></header><section><b>设计理念</b><p>{design.description}</p></section><section><b>设计关键词</b><div className="keyword-row">{design.keywords.map(x=><i key={x}>{x}</i>)}</div></section><section><b>体系关联</b><p>沿用「{creativeDirections.find(x=>x.id===direction)?.name}」的色彩、纹样与叙事语言，与其余三类文创保持统一。</p></section><footer><span>✓ AI 方案与本地效果图已匹配</span><button onClick={()=>setPreview(true)}>查看大图 ↗</button></footer></div>
+        </article>
+        {preview&&<div className="creative-lightbox" role="dialog" aria-modal="true" aria-label="设计效果图预览" onClick={()=>setPreview(false)}><button aria-label="关闭预览">×</button><img src={design.image} alt={`${design.design_name}大图预览`}/><p><b>{design.design_name}</b><span>{creativeProducts[product]} · 本地素材</span></p></div>}
+      </>}
+    </main>
+  </section>
 }
 
-type VideoGoal = "signup" | "brand" | "guide";
-type VideoMood = "cinematic" | "energetic" | "humanistic";
+type VideoStage = "empty" | "ready" | "analyzing" | "editing" | "done";
+type VideoAsset = { src:string; name:string; label:string; note:string; orientation:"横图"|"竖图" };
 
-const videoGoals: Record<VideoGoal,{label:string;hint:string;opening:string;ending:string}> = {
-  signup:{label:"报名招募",hint:"强化赛事吸引力与报名行动",opening:"城市尚未醒来，奔跑的心已经出发",ending:"报名通道现已开启，和我们一起上场"},
-  brand:{label:"品牌形象",hint:"呈现赛事气质与城市名片",opening:"一条赛道，连接一座城市的过去与未来",ending:"以奔跑之名，看见城市向新的力量"},
-  guide:{label:"赛前指南",hint:"清晰传递领物与参赛信息",opening:"距离鸣枪还有最后一步准备",ending:"收藏指南，从容赴约，赛道见"},
-};
-
-const videoMoods: Record<VideoMood,{label:string;music:string;color:string}> = {
-  cinematic:{label:"城市大片",music:"管弦氛围渐进 + 鼓点",color:"墨绿 / 金色 / 晨光"},
-  energetic:{label:"热血动感",music:"电子节拍 128 BPM",color:"高饱和红 / 黑 / 白"},
-  humanistic:{label:"人文纪实",music:"钢琴铺底 + 环境声",color:"暖灰 / 胶片绿 / 米白"},
-};
-
-const baseShots = [
-  {scene:"航拍城市晨曦，赛道线条由远及近",camera:"航拍缓慢推进",purpose:"建立城市与赛事氛围"},
-  {scene:"跑者系紧鞋带、佩戴号码布的特写",camera:"三组快速特写",purpose:"人物进入出发状态"},
-  {scene:"起跑拱门前人群集结，倒计时闪现",camera:"稳定器穿行",purpose:"把情绪推向起跑时刻"},
-  {scene:"跑者穿过城市地标与汾河沿岸",camera:"跟拍与横移切换",purpose:"展示赛道和城市名片"},
-  {scene:"志愿者击掌、观众加油、跑者微笑",camera:"中近景慢动作",purpose:"补充温度与参与感"},
-  {scene:"冲线瞬间定格，活动主题字落版",camera:"升格后快速拉远",purpose:"形成记忆点并承接行动"},
-  {scene:"奖牌、参赛服与补给物资平铺",camera:"俯拍环绕",purpose:"展示赛事服务细节"},
-  {scene:"夜色中的城市灯光与跑者剪影",camera:"延时摄影转剪影",purpose:"延长品牌余韵"},
+const demoAssets:VideoAsset[] = [
+  {src:"/demo-media/01-start.jpg",name:"赛事起跑.jpg",label:"起跑 / 群像",note:"适合作为开场，快速建立赛事规模",orientation:"横图"},
+  {src:"/demo-media/02-city.jpg",name:"城市赛道.jpg",label:"城市 / 赛道",note:"高机位画面，承接城市叙事",orientation:"竖图"},
+  {src:"/demo-media/03-pack.jpg",name:"跑者方阵.jpg",label:"奔跑 / 节奏",note:"人群动势强，适合节拍加速",orientation:"竖图"},
+  {src:"/demo-media/04-pacer.jpg",name:"配速跑者.jpg",label:"奔跑 / 氛围",note:"色彩鲜明，强化现场参与感",orientation:"竖图"},
+  {src:"/demo-media/05-runner.jpg",name:"领先跑者.jpg",label:"人物 / 速度",note:"主体清晰，适合动态推近",orientation:"横图"},
+  {src:"/demo-media/06-smile.jpg",name:"跑者笑脸.jpg",label:"人物 / 情绪",note:"情绪感染力高，作为情感转折",orientation:"竖图"},
+  {src:"/demo-media/07-finish.jpg",name:"冲线时刻.jpg",label:"冲线 / 高潮",note:"动作明确，适合作为高潮镜头",orientation:"横图"},
+  {src:"/demo-media/08-celebrate.jpg",name:"完赛庆祝.jpg",label:"完赛 / 欢呼",note:"正向情绪，承接品牌收束",orientation:"竖图"},
 ];
 
 function VideoDemo({eventInfo}:{eventInfo:EventInfo}) {
-  const [goal,setGoal]=useState<VideoGoal>("signup");
-  const [mood,setMood]=useState<VideoMood>("cinematic");
-  const [duration,setDuration]=useState<15|30|60>(30);
-  const [generated,setGenerated]=useState(true);
-  const [copied,setCopied]=useState(false);
-  const [playing,setPlaying]=useState(false);
-  const [currentTime,setCurrentTime]=useState(0);
-  const [videoFormat,setVideoFormat]=useState<"landscape"|"portrait">("landscape");
+  const [stage,setStage]=useState<VideoStage>("empty");
+  const [progress,setProgress]=useState(0);
+  const [selected,setSelected]=useState(0);
+  const [assets,setAssets]=useState<VideoAsset[]>([]);
+  const [format,setFormat]=useState<"landscape"|"portrait">("landscape");
+  const [prompt,setPrompt]=useState("");
+  const [messages,setMessages]=useState<Array<{role:"ai"|"user";text:string}>>([{role:"ai",text:"你好，我是视频创作助手。请先导入赛事照片，再告诉我想做一条什么样的宣传视频。"}]);
   const eventName=eventInfo.title || "2026太原马拉松";
-  const shotCount=duration===15?4:duration===30?6:8;
-  const shots=baseShots.slice(0,shotCount);
-  const beat=duration/shotCount;
-  const activeShot=Math.min(shots.length-1,Math.floor(currentTime/beat));
-  const voiceover=`${videoGoals[goal].opening}。${eventName}，让每一步都成为城市向前的力量。穿过熟悉的街道，遇见并肩向前的人，也遇见更好的自己。${videoGoals[goal].ending}。`;
-  useEffect(()=>{setCurrentTime(0);setPlaying(false);},[duration,goal,mood]);
-  useEffect(()=>{if(!playing)return;const timer=window.setInterval(()=>setCurrentTime(t=>{if(t>=duration-.1){setPlaying(false);return 0;}return Math.min(duration,t+.1);}),100);return()=>window.clearInterval(timer);},[playing,duration]);
-  function regenerate(){setGenerated(false);setPlaying(false);setCurrentTime(0);window.setTimeout(()=>setGenerated(true),500);}
-  async function copyPlan(){await navigator.clipboard.writeText(`${eventName}｜${duration}秒${videoGoals[goal].label}视频方案\n\n口播：${voiceover}\n\n${shots.map((s,i)=>`${i+1}. ${s.scene}｜${s.camera}｜${s.purpose}`).join("\n")}`);setCopied(true);window.setTimeout(()=>setCopied(false),1600);}
-  return <section className="video-workspace">
-    <aside className="video-brief">
-      <div className="panel-heading"><span>01</span><div><b>设置视频需求</b><small>沿用当前活动项目资料</small></div></div>
-      <div className="shared-project"><span>当前活动项目</span><b>{eventName}</b><small>{eventInfo.date || "2026年9月20日"} · {eventInfo.scale || "40,000人"}</small></div>
-      <label className="field-label">传播目标</label>
-      <div className="video-option-list">{(Object.keys(videoGoals) as VideoGoal[]).map(key=><button key={key} className={goal===key?"active":""} onClick={()=>setGoal(key)}><b>{videoGoals[key].label}</b><small>{videoGoals[key].hint}</small></button>)}</div>
-      <label className="field-label">视频时长</label>
-      <div className="duration-options">{([15,30,60] as const).map(value=><button key={value} className={duration===value?"active":""} onClick={()=>setDuration(value)}>{value}<small>秒</small></button>)}</div>
-      <label className="field-label">视觉风格</label>
-      <div className="mood-options">{(Object.keys(videoMoods) as VideoMood[]).map(key=><button key={key} className={mood===key?"active":""} onClick={()=>setMood(key)}>{videoMoods[key].label}</button>)}</div>
-      <button className="generate video-generate" onClick={regenerate}><span>✦</span>{generated?"AI 生成视频方案":"正在生成方案…"}</button>
-      <p className="safe-note">方案可继续交给拍摄团队或智能成片工具</p>
+  const statusText=stage==="empty"?"等待导入照片":stage==="ready"?"等待生成指令":stage==="analyzing"?"AI 正在理解照片内容":stage==="editing"?"正在编排节奏、转场与字幕":"视频生成完成";
+  useEffect(()=>{if(stage!=="analyzing"&&stage!=="editing")return;const timer=window.setInterval(()=>setProgress(value=>{const next=Math.min(value+2,100);if(next===48)setStage("editing");if(next===100)setStage("done");return next;}),55);return()=>window.clearInterval(timer);},[stage]);
+  function loadAssets(next:VideoAsset[]){setAssets(next);setSelected(0);setStage("ready");setProgress(0);setMessages(m=>[...m,{role:"ai",text:`已收到 ${next.length} 张照片。我识别到起跑、城市赛道、跑者特写和冲线场景。你可以继续描述视频风格，或直接让我生成。`}]);}
+  function generate(){if(!assets.length)return;setMessages(m=>[...m,{role:"ai",text:"好的，开始生成。故事线采用“出发—坚持—抵达”，并加入动态运镜、节拍转场和热血音乐。"}]);setProgress(4);setStage("analyzing");}
+  function importFiles(e:React.ChangeEvent<HTMLInputElement>){const files=Array.from(e.target.files||[]);if(!files.length)return;loadAssets(files.slice(0,12).map((file,index)=>({src:URL.createObjectURL(file),name:file.name,label:"待智能识别",note:`已导入第 ${index+1} 张照片`,orientation:"横图"})));}
+  function sendPrompt(e:React.FormEvent){e.preventDefault();const value=prompt.trim();if(!value)return;setMessages(m=>[...m,{role:"user",text:value}]);setPrompt("");if(!assets.length){setMessages(m=>[...m,{role:"ai",text:"还没有可用照片。请先导入照片，导入后我再为你生成。"}]);return;}if(/生成|开始|成片|制作/.test(value)){generate();return;}setMessages(m=>[...m,{role:"ai",text:"已记录：15 秒、16:9 横版，并按你的要求调整画面节奏。确认后回复“开始生成”即可。"}]);}
+  return <section className="photo-video-workspace">
+    <aside className="photo-rail video-chat-rail">
+      <div className="panel-heading"><span>01</span><div><b>AI 视频创作助手</b><small>通过对话完成照片成片</small></div></div>
+      <div className="video-chat-messages">{messages.slice(-5).map((message,index)=><div className={`video-bubble ${message.role}`} key={`${message.text}-${index}`}>{message.role==="ai"&&<span>AI</span>}<p>{message.text}</p></div>)}</div>
+      <div className="chat-import-actions"><label><input type="file" accept="image/*" multiple onChange={importFiles}/><span>＋</span>导入照片</label><button onClick={()=>loadAssets(demoAssets)}>导入演示照片</button></div>
+      <form className="video-chat-input" onSubmit={sendPrompt}><textarea value={prompt} onChange={e=>setPrompt(e.target.value)} placeholder={assets.length?"例如：做成15秒热血宣传片……":"请先导入照片……"}/><div><span>{assets.length?`已导入 ${assets.length} 张照片`:"尚未导入素材"}</span><button type="submit" disabled={!prompt.trim()}>↑</button></div></form>
+      <button className="chat-generate" disabled={!assets.length||stage==="analyzing"||stage==="editing"} onClick={generate}><span>✦</span>{stage==="analyzing"||stage==="editing"?"正在生成视频…":"确认并生成视频"}</button>
+      {assets.length>0&&<div className="asset-count"><span><i/>已导入 {assets.length} 张</span><em>质量检查通过</em></div>}
+      <div className="photo-list">{assets.map((asset,index)=><button key={`${asset.name}-${index}`} className={selected===index?"active":""} onClick={()=>setSelected(index)}><img src={asset.src} alt={asset.label}/><span><b>{String(index+1).padStart(2,"0")} · {asset.label}</b><small>{asset.name}</small></span><em>✓</em></button>)}</div>
     </aside>
-
-    <section className="video-result">
-      <div className="video-result-head"><div><span className="step">02</span><p><b>宣传视频方案</b><small>{duration} 秒 · {shotCount} 个镜头 · AI 已生成</small></p></div><div><span className="save-status"><i/>方案已自动保存</span><button className="ghost" onClick={copyPlan}>{copied?"✓ 已复制":"复制方案"}</button></div></div>
-      <div className={generated?"video-plan-card":"video-plan-card loading"}>
-        <div className="video-preview-shell">
-          <div className="video-preview-toolbar"><div><b>成片效果预览</b><span>画面根据分镜方案动态演示</span></div><div><button className={videoFormat==="landscape"?"active":""} onClick={()=>setVideoFormat("landscape")}>16:9 横版</button><button className={videoFormat==="portrait"?"active":""} onClick={()=>setVideoFormat("portrait")}>9:16 竖版</button></div></div>
-          <div className={`demo-player ${videoFormat} mood-${mood}`}>
-            <div className={`demo-frame scene-${activeShot%6}`}>
-              <div className="city-silhouette"><i/><i/><i/><i/><i/></div>
-              <div className="runner-figure"><i/><b/><span/></div>
-              <div className="motion-lines"><i/><i/><i/></div>
-              <div className="player-brand"><span>AI VIDEO PLAN</span><em>{eventName}</em></div>
-              <div className="scene-label"><small>镜头 {String(activeShot+1).padStart(2,"0")} · {shots[activeShot].camera}</small><strong>{shots[activeShot].scene}</strong></div>
-              <div className="player-caption">{activeShot===0?videoGoals[goal].opening:activeShot===shots.length-1?videoGoals[goal].ending:"穿过城市的脉络，奔向共同的目标"}</div>
-              <button className="play-toggle" aria-label={playing?"暂停预览":"播放预览"} onClick={()=>setPlaying(x=>!x)}>{playing?"Ⅱ":"▶"}</button>
-            </div>
-            <div className="player-controls"><button onClick={()=>setPlaying(x=>!x)}>{playing?"Ⅱ":"▶"}</button><span>{currentTime.toFixed(1)}s</span><input aria-label="视频进度" type="range" min="0" max={duration} step="0.1" value={currentTime} onChange={e=>{setCurrentTime(Number(e.target.value));setPlaying(false)}}/><span>{duration}s</span><button aria-label="声音">♫</button></div>
-          </div>
-          <div className="shot-strip">{shots.map((shot,i)=><button key={shot.scene} className={activeShot===i?"active":""} onClick={()=>{setCurrentTime(i*beat);setPlaying(false)}}><span>{String(i+1).padStart(2,"0")}</span><i>{Math.round(i*beat)}—{Math.round((i+1)*beat)}s</i></button>)}</div>
+    <section className="creation-stage">
+      <div className="creation-head"><div><span className="step">02</span><p><b>AI 照片成片</b><small>{stage==="empty"?"新建视频任务":`${eventName} · 15 秒横版宣传片`}</small></p></div><span className={`stage-pill ${stage}`}><i/>{statusText}</span></div>
+      {stage==="empty"?<div className="video-empty-state"><span>＋</span><h2>从照片开始创作视频</h2><p>在左侧对话框导入赛事照片，AI 会理解画面内容并与你确认成片要求。</p><div><i>1</i>导入照片<b>→</b><i>2</i>对话描述<b>→</b><i>3</i>生成视频</div></div>:stage!=="done"?<div className="photo-analysis-card">
+        <div className="analysis-visual"><img src={assets[selected].src} alt="当前分析素材"/><div className="scan-line"/><div className="detect-tag top">人物主体 · 96%</div><div className="detect-tag bottom">赛事场景 · 98%</div><div className="analysis-caption"><small>AI VISION / {String(selected+1).padStart(2,"0")}</small><strong>{assets[selected].label}</strong><span>{assets[selected].note}</span></div></div>
+        <div className="analysis-panel"><span className="ai-kicker">✦ AI 素材理解</span><h2>{stage==="ready"?"照片已导入，等待你的创作指令":"正在把静态照片变成有节奏的故事"}</h2><p>{stage==="ready"?"继续在左侧对话中描述时长、风格、字幕等要求。AI 会根据对话控制视频生成。":"已识别起跑、城市赛道、跑者特写与冲线等关键场景，正在按“出发—坚持—抵达”的叙事结构完成剪辑。"}</p>
+          <div className="analysis-facts"><div><b>{assets.length}</b><span>张有效照片</span></div><div><b>15s</b><span>目标时长</span></div><div><b>16:9</b><span>输出画幅</span></div></div>
+          {stage==="ready"?<div className="waiting-command"><span>←</span><p><b>等待你的生成指令</b><small>请在左侧对话框继续描述，或点击“确认并生成视频”</small></p></div>:<div className="generation-progress"><div><span>{statusText}</span><b>{progress}%</b></div><i><b style={{width:`${progress}%`}}/></i></div>}
         </div>
-        <div className="plan-summary"><div><span>创意主线</span><b>从城市苏醒，到万人共同出发</b></div><div><span>音乐建议</span><b>{videoMoods[mood].music}</b></div><div><span>视觉色调</span><b>{videoMoods[mood].color}</b></div></div>
-        <div className="script-block"><div className="section-title"><b>口播与字幕文案</b><span>约 {voiceover.length} 字</span></div><p>{voiceover}</p></div>
-        <div className="storyboard"><div className="section-title"><b>分镜脚本</b><span>时间轴自动适配 {duration} 秒</span></div>{shots.map((shot,i)=><div className="shot-row" key={shot.scene}><div className="shot-index"><b>{String(i+1).padStart(2,"0")}</b><span>{Math.round(i*beat)}—{Math.round((i+1)*beat)}s</span></div><div className="shot-thumb"><i/><span>{i%2===0?"CITY":"RUN"}</span></div><div className="shot-content"><b>{shot.scene}</b><span>{shot.camera}</span></div><small>{shot.purpose}</small></div>)}</div>
-      </div>
+      </div>:<div className="final-video-card">
+        <div className="video-topline"><div><span className="success-check">✓</span><p><b>《每一步，都算数》</b><small>15 秒 · 高清 · 已完成智能运镜与节奏剪辑</small></p></div><div className="format-switch"><button className={format==="landscape"?"active":""} onClick={()=>setFormat("landscape")}>16:9 横版</button><button className={format==="portrait"?"active":""} onClick={()=>setFormat("portrait")}>9:16 竖版</button></div></div>
+        <div className={`real-video ${format}`}><video controls playsInline preload="metadata" poster="/demo-media/01-start.jpg"><source src="/demo-media/final.mp4" type="video/mp4"/>你的浏览器暂不支持视频播放。</video></div>
+        <div className="result-meta"><div><span>智能选片</span><b>{assets.length} / {assets.length} 张已使用</b></div><div><span>故事结构</span><b>出发 · 坚持 · 抵达</b></div><div><span>视觉处理</span><b>动态推拉 · 节拍转场</b></div><div><span>声音</span><b>热血音乐 · 字幕卡点</b></div></div>
+        <div className="result-actions"><button className="ghost" onClick={()=>{setStage("ready");setProgress(0)}}>继续对话调整</button><a className="download-video" href="/demo-media/final.mp4" download>↓ 导出视频</a></div>
+      </div>}
+      {assets.length>0&&<div className="storyline-strip"><div className="strip-title"><b>AI 推荐叙事顺序</b><span>根据画面内容与情绪曲线自动编排 · 总时长 15s</span></div><div className="story-thumbs">{assets.map((asset,index)=><button key={`story-${index}`} className={selected===index?"active":""} onClick={()=>setSelected(index)}><img src={asset.src} alt=""/><span>{index<1?"出发":index<5?"奔跑":index<7?"冲刺":"抵达"}</span><i>{Math.round(index*15/assets.length)}s</i></button>)}</div></div>}
     </section>
-
-    <aside className="video-assets">
-      <div className="panel-heading"><span>03</span><div><b>制作辅助</b><small>素材、声音与交付检查</small></div></div>
-      <div className="asset-progress"><span><b>方案完整度</b><em>92%</em></span><i><b/></i></div>
-      <h3>建议素材清单</h3>
-      {["城市航拍与地标空镜","跑者训练及装备特写","起跑、赛道与冲线画面","志愿服务和观众互动","赛事 LOGO 与报名二维码"].map((x,i)=><label className="asset-item" key={x}><input type="checkbox" defaultChecked={i<3}/><span><b>{x}</b><small>{i<3?"素材库已匹配":"建议补充上传"}</small></span></label>)}
-      <div className="divider"/>
-      <h3>声音设计</h3>
-      <div className="sound-card"><span>♫</span><p><b>{videoMoods[mood].music}</b><small>建议在第 {Math.round(duration*.6)} 秒进入情绪高潮</small></p></div>
-      <div className="delivery-note"><span>✦</span><p><b>下一步：智能成片</b><small>接入赛事素材库后，可自动匹配画面、配音、字幕并输出横竖版视频。</small></p></div>
+    <aside className="video-settings">
+      <div className="panel-heading"><span>03</span><div><b>成片设置</b><small>由对话自动提取</small></div></div>
+      {assets.length===0?<div className="settings-empty"><span>✦</span><b>等待创作需求</b><small>导入照片并在对话中描述视频后，这里会自动形成参数。</small></div>:<><label className="field-label">视频主题</label><div className="setting-card"><b>每一步，都算数</b><small>马拉松品牌形象宣传</small></div><label className="field-label">节奏风格</label><div className="setting-options"><button className="active">热血动感</button><button>城市大片</button><button>人文纪实</button></div><label className="field-label">智能处理</label>{["照片动态运镜","主体智能构图","节拍转场","标题与字幕","背景音乐匹配"].map(x=><div className="auto-setting" key={x}><span>{x}</span><i>✓</i></div>)}<div className="ai-insight"><span>✦</span><p><b>AI 素材洞察</b><small>这组照片人物情绪充足，建议以群像开场、人物特写推进，最后用冲线与欢呼完成情绪高潮。</small></p></div></>}
     </aside>
   </section>;
+}
+
+type PptStage="brief"|"outlining"|"outline"|"building"|"preview";
+type PptMessage={role:"ai"|"user";text:string;card?:string};
+const pptSlides=[
+  ["封面","鹏飞集团杯·氢筑新程马拉松"],
+  ["项目立意","这不只是一场比赛"],
+  ["项目立意","四个价值，沉淀长期品牌资产"],
+  ["项目立意","城市与产业的连接器"],
+  ["品牌契合","鹏飞与赛事，共享价值语言"],
+  ["品牌契合","氢能使命与绿色赛事同频"],
+  ["品牌契合","从产业优势到公众认知"],
+  ["品牌契合","品牌合作核心结论"],
+  ["赛事呈现","赛事总体概况"],
+  ["赛事呈现","四条跑者体验线"],
+  ["赛事呈现","公益捐赠行动闭环"],
+  ["赛事呈现","绿色低碳赛事场景"],
+  ["赛事呈现","城市文旅联动"],
+  ["冠名权益","独家总冠名权益总览"],
+  ["冠名权益","赛事命名与身份权益"],
+  ["冠名权益","视觉系统露出"],
+  ["冠名权益","现场核心场景"],
+  ["冠名权益","跑者触达与互动"],
+  ["冠名权益","企业专属激活"],
+  ["传播合作","全周期传播规划"],
+  ["传播合作","内容传播矩阵"],
+  ["传播合作","品牌资产沉淀"],
+  ["结语","以氢筑新程，践行绿色使命"],
+];
+
+function PptDemo(){
+  const [stage,setStage]=useState<PptStage>("brief");
+  const [progress,setProgress]=useState(0);
+  const [current,setCurrent]=useState(0);
+  const [prompt,setPrompt]=useState("");
+  const [compact,setCompact]=useState(false);
+  const [messages,setMessages]=useState<PptMessage[]>([{role:"ai",text:"你好，我是汇报 PPT 助手。我已关联当前赛事方案，可以直接为鹏飞集团生成独家总冠名合作提案。"}]);
+  const iframeRef=useRef<HTMLIFrameElement>(null);
+  const deckRef=useRef<HTMLDivElement>(null);
+  const visibleIndexes=compact?[0,1,4,5,8,13,19,22]:pptSlides.map((_,i)=>i);
+  const busy=stage==="outlining"||stage==="building";
+  useEffect(()=>{if(!busy)return;const timer=window.setInterval(()=>setProgress(p=>Math.min(100,p+4)),90);return()=>window.clearInterval(timer)},[busy]);
+  useEffect(()=>{if(progress<100)return;if(stage==="outlining"){setStage("outline");setMessages(m=>[...m,{role:"ai",text:"提纲已完成，共规划 23 页，重点覆盖项目价值、品牌契合、冠名权益与传播合作。",card:"已生成 23 页汇报提纲"}])}else if(stage==="building"){setStage("preview");setMessages(m=>[...m,{role:"ai",text:"PPT 已生成并完成版式检查。你可以继续让我定位页面、精简结构或生成讲解建议。",card:"PPT 已生成 · 23 页"}]);}},[progress,stage]);
+  function scrollSlide(index:number){setCurrent(index);window.setTimeout(()=>{const doc=iframeRef.current?.contentDocument;doc?.querySelectorAll<HTMLElement>(".slide")[index]?.scrollIntoView({behavior:"smooth",block:"start"})},30)}
+  function beginOutline(){if(busy)return;setProgress(0);setStage("outlining");setMessages(m=>[...m,{role:"user",text:"根据当前赛事方案，生成面向鹏飞集团的独家总冠名合作提案。"},{role:"ai",text:"收到。我正在提取赛事立意、氢能品牌契合点、冠名权益和传播价值，并组织领导汇报逻辑。"}])}
+  function buildDeck(){setProgress(0);setStage("building");setMessages(m=>[...m,{role:"user",text:"提纲没问题，开始生成 PPT。"},{role:"ai",text:"正在套用“氢筑新程”赛事官方模板，并逐页检查标题层级、内容密度和视觉一致性。"}])}
+  function send(e:React.FormEvent){e.preventDefault();const value=prompt.trim();if(!value||busy)return;setPrompt("");setMessages(m=>[...m,{role:"user",text:value}]);if(stage==="brief"){beginOutline();return}if(stage==="outline"&&/生成|开始|确认|可以/.test(value)){buildDeck();return}if(/8页|精简|领导版|压缩/.test(value)){setCompact(true);setMessages(m=>[...m,{role:"ai",text:"已压缩为 8 页领导速览版，保留项目立意、品牌契合、核心权益与传播合作。",card:"已切换 · 8 页领导版"}]);return}let target=-1;if(/品牌|鹏飞|氢能|契合/.test(value))target=4;else if(/传播|曝光|媒体/.test(value))target=19;else if(/权益|冠名/.test(value))target=13;else if(/公益|捐赠/.test(value))target=10;else if(/下一页/.test(value))target=Math.min(current+1,22);else if(/上一页/.test(value))target=Math.max(current-1,0);else {const match=value.match(/第\s*(\d+)\s*页/);if(match)target=Math.max(0,Math.min(22,Number(match[1])-1))}if(target>=0){scrollSlide(target);setMessages(m=>[...m,{role:"ai",text:`已定位到第 ${target+1} 页「${pptSlides[target][1]}」。`,card:`当前页面 · ${String(target+1).padStart(2,"0")}` }]);return}if(/备注|演讲|怎么讲|讲解/.test(value)){setMessages(m=>[...m,{role:"ai",text:`这一页建议先讲结论：“${pptSlides[current][1]}”。随后用 30 秒说明它与鹏飞绿色使命及赛事公众价值的连接，最后落到可执行的合作动作。`,card:"当前页演讲建议 · 约 45 秒"}]);return}setMessages(m=>[...m,{role:"ai",text:"我已理解你的调整方向。演示版支持精简页数、定位品牌/传播/权益页面，以及生成当前页演讲备注。"}])}
+  return <section className="ppt-workspace">
+    <aside className="ppt-ai-rail"><div className="panel-heading"><span>01</span><div><b>AI 汇报助手</b><small>通过对话规划、生成与修改</small></div></div>
+      <div className="ppt-source"><i>✓</i><div><b>赛事方案已关联</b><span>鹏飞集团杯·氢筑新程马拉松</span></div><em>已解析</em></div>
+      <div className="ppt-chat">{messages.slice(-7).map((m,i)=><div className={`ppt-bubble ${m.role}`} key={`${m.text}-${i}`}>{m.role==="ai"&&<span>AI</span>}<div><p>{m.text}</p>{m.card&&<button onClick={()=>stage==="preview"&&scrollSlide(current)}><i>✦</i>{m.card}<b>→</b></button>}</div></div>)}{busy&&<div className="ppt-bubble ai"><span>AI</span><div><p className="ppt-thinking"><i/><i/><i/>正在生成，已完成 {progress}%</p></div></div>}</div>
+      <div className="ppt-quick">{stage==="brief"?<button onClick={beginOutline}>生成总冠名合作提案</button>:stage==="outline"?<button onClick={buildDeck}>确认提纲并生成 PPT</button>:<><button onClick={()=>{setCompact(true);setMessages(m=>[...m,{role:"user",text:"压缩成 8 页领导版"},{role:"ai",text:"已压缩为 8 页领导速览版，保留项目立意、品牌契合、核心权益与传播合作。",card:"已切换 · 8 页领导版"}])}}>8页领导版</button><button onClick={()=>{scrollSlide(4);setMessages(m=>[...m,{role:"user",text:"重点讲品牌契合"},{role:"ai",text:"已定位品牌契合章节，建议重点说明氢能使命、绿色赛事和公众沟通之间的共同价值。",card:"已定位 · 品牌契合"}])}}>品牌契合</button><button onClick={()=>setMessages(m=>[...m,{role:"user",text:"生成当前页演讲备注"},{role:"ai",text:`已为第 ${current+1} 页生成演讲备注：先讲核心结论，再说明品牌关联，最后落到执行动作。`,card:"当前页演讲建议 · 约 45 秒"}])}>演讲备注</button></>}</div>
+      <form className="ppt-chat-input" onSubmit={send}><textarea value={prompt} onChange={e=>setPrompt(e.target.value)} placeholder={stage==="brief"?"例如：生成面向鹏飞集团的冠名提案……":"继续输入调整要求……"}/><div><span>AI 会控制当前汇报</span><button disabled={!prompt.trim()||busy}>↑</button></div></form>
+    </aside>
+    <main className="ppt-main"><div className="ppt-main-head"><div><span className="step">02</span><p><b>{stage==="preview"?"PPT 预览":"汇报结构规划"}</b><small>独家总冠名合作提案 · 正式简洁 · 绿色科技</small></p></div><span className={`stage-pill ${busy?"analyzing":stage}`}><i/>{stage==="brief"?"等待生成需求":stage==="outlining"?"AI 正在梳理汇报逻辑":stage==="outline"?"提纲已生成":stage==="building"?"AI 正在生成页面":"PPT 已生成"}</span></div>
+      {stage==="brief"?<div className="ppt-empty"><span>✦</span><h2>从赛事方案到一套完整汇报</h2><p>在左侧直接告诉 AI 汇报对象与用途，AI 将先规划提纲，再生成视觉统一的演示文稿。</p><div><i>1</i>理解方案<b>→</b><i>2</i>生成提纲<b>→</b><i>3</i>输出 PPT</div></div>:busy?<div className="ppt-generating"><div className="ppt-orbit"><span>AI</span><i/><i/><i/></div><h2>{stage==="outlining"?"正在搭建有说服力的汇报结构":"正在逐页生成并检查演示文稿"}</h2><p>{stage==="outlining"?"项目价值 → 品牌契合 → 赛事呈现 → 冠名权益 → 传播合作":"应用赛事模板 · 匹配内容层级 · 检查页面完整性"}</p><div><i><b style={{width:`${progress}%`}}/></i><span>{progress}%</span></div></div>:stage==="outline"?<div className="ppt-outline"><div className="outline-summary"><span>✦ AI 已完成结构规划</span><b>23 页 · 5 个章节 · 一页一个核心观点</b><button onClick={buildDeck}>确认提纲，生成 PPT →</button></div><div className="outline-list">{pptSlides.map((s,i)=><div key={i}><em>{String(i+1).padStart(2,"0")}</em><span><b>{s[1]}</b><small>{s[0]} · 已匹配推荐版式</small></span><i>⋮⋮</i></div>)}</div></div>:<div className="ppt-deck" ref={deckRef}><aside className="ppt-thumbs"><div><b>{compact?"领导版":"完整版"}</b><span>{visibleIndexes.length} 页</span></div>{visibleIndexes.map(i=><button key={i} className={current===i?"active":""} onClick={()=>scrollSlide(i)}><em>{String(i+1).padStart(2,"0")}</em><span><b>{pptSlides[i][0]}</b><small>{pptSlides[i][1]}</small></span></button>)}</aside><section className="ppt-canvas"><div className="ppt-toolbar"><span><i/>视觉与内容检查通过</span><div><button onClick={()=>scrollSlide(Math.max(0,current-1))}>←</button><b>{current+1} / 23</b><button onClick={()=>scrollSlide(Math.min(22,current+1))}>→</button><button onClick={()=>deckRef.current?.requestFullscreen()}>全屏演示</button></div></div><div className="ppt-frame"><iframe ref={iframeRef} src="/ppt-slides/Preview.html" title="PPT 页面预览" onLoad={()=>scrollSlide(current)}/></div><div className="ppt-caption"><div><b>{pptSlides[current][1]}</b><span>{pptSlides[current][0]} · 当前页面</span></div><div><button onClick={()=>setMessages(m=>[...m,{role:"ai",text:`已为第 ${current+1} 页生成演讲备注：先讲核心结论，再说明品牌关联，最后落到执行动作。`,card:"演讲备注已生成"}])}>✦ 生成本页讲稿</button><a href="/downloads/鹏飞集团杯·氢筑新程马拉松·独家总冠名合作提案.pptx" download>↓ 导出 PPT</a></div></div></section></div>}
+    </main>
+    <aside className="ppt-info"><div className="panel-heading"><span>03</span><div><b>汇报设置</b><small>由对话自动提取</small></div></div>{[["汇报类型","独家总冠名合作提案"],["汇报对象","鹏飞集团决策层"],["内容页数",compact?"8 页领导版":"23 页完整版"],["视觉风格","正式 · 简洁 · 绿色科技"],["模板","氢筑新程官方模板"]].map(x=><div className="ppt-setting" key={x[0]}><span>{x[0]}</span><b>{x[1]}</b></div>)}<div className="ppt-insight"><span>✦</span><div><b>AI 汇报策略</b><p>先建立赛事公共价值，再证明鹏飞品牌与绿色赛事的天然契合，最终用权益和传播方案推动合作决策。</p></div></div><div className="ppt-files"><b>本次使用资料</b><span>✓ 赛事策划方案</span><span>✓ 品牌合作要点</span><span>✓ 官方视觉模板</span></div></aside>
+  </section>
 }
