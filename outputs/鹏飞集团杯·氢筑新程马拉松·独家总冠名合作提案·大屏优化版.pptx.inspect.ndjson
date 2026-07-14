@@ -1,0 +1,236 @@
+{"kind":"deck","id":"pr/4i2zmf","name":"Deck"}
+{"kind":"layout","layoutId":"36f7462e-a9ea-49dd-a22f-7ab529c4d5e5","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"1be20551-0efb-44fb-be51-961c691c7469","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/jsbhcn","slide":1,"title":"鹏飞集团杯","textShapes":5}
+{"kind":"shape","id":"sh/hg7e90zu","slide":1,"bbox":[0,0,20,720]}
+{"kind":"textbox","id":"sh/gfydgvy9","slide":1,"text":"鹏飞集团杯","textPreview":"鹏飞集团杯","textChars":5,"textLines":1,"bbox":[76,76,560,48]}
+{"kind":"textbox","id":"sh/7q5c36hs","slide":1,"text":"氢筑新程\n马拉松","textPreview":"氢筑新程 | 马拉松","textChars":8,"textLines":2,"bbox":[72,146,610,190]}
+{"kind":"textbox","id":"sh/mpwvalg7","slide":1,"text":"氢筑新程，为爱奔跑","textPreview":"氢筑新程，为爱奔跑","textChars":9,"textLines":1,"bbox":[76,368,580,54]}
+{"kind":"shape","id":"sh/tc7u5gzi","slide":1,"bbox":[76,456,420,2]}
+{"kind":"textbox","id":"sh/8bydcbyx","slide":1,"text":"独家总冠名合作提案","textPreview":"独家总冠名合作提案","textChars":9,"textLines":1,"bbox":[76,486,520,48]}
+{"kind":"textbox","id":"sh/zm5cz6hg","slide":1,"text":"为带给你阳光的人奔跑","textPreview":"为带给你阳光的人奔跑","textChars":10,"textLines":1,"bbox":[76,584,520,38]}
+{"kind":"image","id":"im/bu9k72t4","slide":1,"name":"","geometry":"rect","alt":"01-start.jpg","bbox":[720,0,560,720]}
+{"kind":"notes","id":"nt/jsbhcn","slide":1,"text":""}
+{"kind":"slide","id":"sl/3byou5","slide":2,"title":"01 / 赛事价值","textShapes":12}
+{"kind":"textbox","id":"sh/vy1s7qto","slide":2,"text":"01 / 赛事价值","textPreview":"01 / 赛事价值","textChars":9,"textLines":1,"bbox":[72,30,440,28]}
+{"kind":"textbox","id":"sh/gzatgva9","slide":2,"text":"这场赛事，让品牌影响力与社会价值同向增长","textPreview":"这场赛事，让品牌影响力与社会价值同向增长","textChars":20,"textLines":1,"bbox":[72,68,1120,78]}
+{"kind":"textbox","id":"sh/h03a90ru","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[1160,34,48,26]}
+{"kind":"textbox","id":"sh/32lsba90","slide":2,"text":"100%","textPreview":"100%","textChars":4,"textLines":1,"bbox":[650,200,500,80]}
+{"kind":"textbox","id":"sh/43utkfal","slide":2,"text":"报名费捐赠点爱基金","textPreview":"报名费捐赠点爱基金","textChars":9,"textLines":1,"bbox":[650,282,500,42]}
+{"kind":"shape","id":"sh/543ad0r6","slide":2,"bbox":[650,364,10,10]}
+{"kind":"textbox","id":"sh/y58r61sb","slide":2,"text":"绿色","textPreview":"绿色","textChars":2,"textLines":1,"bbox":[678,350,472,36]}
+{"kind":"textbox","id":"sh/j6hsz6tg","slide":2,"text":"氢能理念进入真实赛事场景","textPreview":"氢能理念进入真实赛事场景","textChars":12,"textLines":1,"bbox":[678,388,472,48]}
+{"kind":"shape","id":"sh/vy1wvypk","slide":2,"bbox":[650,456,10,10]}
+{"kind":"textbox","id":"sh/uxsfmdof","slide":2,"text":"公益","textPreview":"公益","textChars":2,"textLines":1,"bbox":[678,442,472,36]}
+{"kind":"textbox","id":"sh/h03ex8nq","slide":2,"text":"每一次报名都形成可追踪善意","textPreview":"每一次报名都形成可追踪善意","textChars":13,"textLines":1,"bbox":[678,480,472,48]}
+{"kind":"shape","id":"sh/wzuxo365","slide":2,"bbox":[650,548,10,10]}
+{"kind":"textbox","id":"sh/7u1wrypo","slide":2,"text":"城市","textPreview":"城市","textChars":2,"textLines":1,"bbox":[678,534,472,36]}
+{"kind":"textbox","id":"sh/mtsfito3","slide":2,"text":"跑者、媒体与消费场景集中汇聚","textPreview":"跑者、媒体与消费场景集中汇聚","textChars":14,"textLines":1,"bbox":[678,572,472,48]}
+{"kind":"textbox","id":"sh/9wjet87u","slide":2,"text":"PENGFEI GROUP CUP · HYDROGEN BUILDS A NEW JOURNEY","textPreview":"PENGFEI GROUP CUP · HYDROGEN BUILDS A NEW JOURNEY","textChars":49,"textLines":1,"bbox":[72,680,780,20]}
+{"kind":"image","id":"im/nuxgvm5k","slide":2,"name":"","geometry":"roundRect","alt":"05-runner.jpg","bbox":[72,194,530,420]}
+{"kind":"notes","id":"nt/3byou5","slide":2,"text":""}
+{"kind":"slide","id":"sl/4nrhkq","slide":3,"title":"02 / 鹏飞合作价值","textShapes":21}
+{"kind":"textbox","id":"sh/mhknu1sb","slide":3,"text":"02 / 鹏飞合作价值","textPreview":"02 / 鹏飞合作价值","textChars":11,"textLines":1,"bbox":[72,30,440,28]}
+{"kind":"textbox","id":"sh/9kv65gbm","slide":3,"text":"一次冠名，带动五个品牌目标","textPreview":"一次冠名，带动五个品牌目标","textChars":13,"textLines":1,"bbox":[72,68,1120,78]}
+{"kind":"textbox","id":"sh/8jm5wba1","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[1160,34,48,26]}
+{"kind":"textbox","id":"sh/zutoz6tk","slide":3,"text":"不止获得曝光，更让鹏飞产业价值被理解、体验与转化。","textPreview":"不止获得曝光，更让鹏飞产业价值被理解、体验与转化。","textChars":25,"textLines":1,"bbox":[72,160,1080,50]}
+{"kind":"textbox","id":"sh/ytknq1sz","slide":3,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[72,250,180,50]}
+{"kind":"shape","id":"sh/lgb61wbq","slide":3,"bbox":[72,316,180,2]}
+{"kind":"textbox","id":"sh/0v25sra5","slide":3,"text":"氢能主业","textPreview":"氢能主业","textChars":4,"textLines":1,"bbox":[72,338,190,48]}
+{"kind":"textbox","id":"sh/bq9ovmto","slide":3,"text":"场景化传播","textPreview":"场景化传播","textChars":5,"textLines":1,"bbox":[72,392,190,42]}
+{"kind":"textbox","id":"sh/qp0nmhs3","slide":3,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[298,250,180,50]}
+{"kind":"shape","id":"sh/4v2dsvyp","slide":3,"bbox":[298,316,180,2]}
+{"kind":"textbox","id":"sh/5wbul0za","slide":3,"text":"文旅资源","textPreview":"文旅资源","textChars":4,"textLines":1,"bbox":[298,338,190,48]}
+{"kind":"textbox","id":"sh/itkvq5gz","slide":3,"text":"持续引流","textPreview":"持续引流","textChars":4,"textLines":1,"bbox":[298,392,190,42]}
+{"kind":"textbox","id":"sh/3utcjqhk","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[524,250,180,50]}
+{"kind":"shape","id":"sh/gridovyt","slide":3,"bbox":[524,316,180,2]}
+{"kind":"textbox","id":"sh/hsbuh0ze","slide":3,"text":"高端酒店","textPreview":"高端酒店","textChars":4,"textLines":1,"bbox":[524,338,190,48]}
+{"kind":"textbox","id":"sh/u50vmlgn","slide":3,"text":"客源转化","textPreview":"客源转化","textChars":4,"textLines":1,"bbox":[524,392,190,42]}
+{"kind":"textbox","id":"sh/vq9cfqh8","slide":3,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[750,250,180,50]}
+{"kind":"shape","id":"sh/0nmd0fyx","slide":3,"bbox":[750,316,180,2]}
+{"kind":"textbox","id":"sh/1ovetkzi","slide":3,"text":"企业责任","textPreview":"企业责任","textChars":4,"textLines":1,"bbox":[750,338,190,48]}
+{"kind":"textbox","id":"sh/9krudkrm","slide":3,"text":"可视化","textPreview":"可视化","textChars":3,"textLines":1,"bbox":[750,392,190,42]}
+{"kind":"textbox","id":"sh/ojidkfq1","slide":3,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[976,250,180,50]}
+{"kind":"shape","id":"sh/ni9cba9w","slide":3,"bbox":[976,316,180,2]}
+{"kind":"textbox","id":"sh/mh0vi58b","slide":3,"text":"高端圈层","textPreview":"高端圈层","textChars":4,"textLines":1,"bbox":[976,338,190,48]}
+{"kind":"textbox","id":"sh/1gru90rq","slide":3,"text":"有效链接","textPreview":"有效链接","textChars":4,"textLines":1,"bbox":[976,392,190,42]}
+{"kind":"textbox","id":"sh/0fidgfq5","slide":3,"text":"产业实力被看见  ·  责任担当被感知  ·  消费场景被激活","textPreview":"产业实力被看见  ·  责任担当被感知  ·  消费场景被激活","textChars":31,"textLines":1,"bbox":[72,542,1100,62]}
+{"kind":"textbox","id":"sh/zepc7a9k","slide":3,"text":"PENGFEI GROUP CUP · HYDROGEN BUILDS A NEW JOURNEY","textPreview":"PENGFEI GROUP CUP · HYDROGEN BUILDS A NEW JOURNEY","textChars":49,"textLines":1,"bbox":[72,680,780,20]}
+{"kind":"notes","id":"nt/4nrhkq","slide":3,"text":""}
+{"kind":"slide","id":"sl/s1icvr","slide":4,"title":"02 / 鹏飞合作价值","textShapes":21}
+{"kind":"textbox","id":"sh/mpsnip0z","slide":4,"text":"02 / 鹏飞合作价值","textPreview":"02 / 鹏飞合作价值","textChars":11,"textLines":1,"bbox":[72,30,440,28]}
+{"kind":"textbox","id":"sh/9sjmt4jq","slide":4,"text":"赛事流量不是终点，而是产业联动的起点","textPreview":"赛事流量不是终点，而是产业联动的起点","textChars":18,"textLines":1,"bbox":[72,68,1120,78]}
+{"kind":"textbox","id":"sh/8ra5kzi5","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[1160,34,48,26]}
+{"kind":"textbox","id":"sh/atsnm90b","slide":4,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[82,196,54,42]}
+{"kind":"textbox","id":"sh/xg3mx4jm","slide":4,"text":"赛事流量","textPreview":"赛事流量","textChars":4,"textLines":1,"bbox":[154,196,240,42]}
+{"kind":"textbox","id":"sh/wfu5oji1","slide":4,"text":"聚集","textPreview":"聚集","textChars":2,"textLines":1,"bbox":[420,196,110,42]}
+{"kind":"shape","id":"sh/jil4ze1s","slide":4,"bbox":[154,256,390,1]}
+{"kind":"textbox","id":"sh/ihcnq907","slide":4,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[82,280,54,42]}
+{"kind":"textbox","id":"sh/o7m14be9","slide":4,"text":"品牌认知","textPreview":"品牌认知","textChars":4,"textLines":1,"bbox":[154,280,240,42]}
+{"kind":"textbox","id":"sh/p8vixgfu","slide":4,"text":"沉淀","textPreview":"沉淀","textChars":2,"textLines":1,"bbox":[420,280,110,42]}
+{"kind":"shape","id":"sh/25kj21w3","slide":4,"bbox":[154,340,390,1]}
+{"kind":"textbox","id":"sh/36t0v6xo","slide":4,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[82,364,54,42]}
+{"kind":"textbox","id":"sh/cvm18ve5","slide":4,"text":"氢能体验","textPreview":"氢能体验","textChars":4,"textLines":1,"bbox":[154,364,240,42]}
+{"kind":"textbox","id":"sh/dwvi10fq","slide":4,"text":"理解","textPreview":"理解","textChars":2,"textLines":1,"bbox":[420,364,110,42]}
+{"kind":"shape","id":"sh/qt4j6lwz","slide":4,"bbox":[154,424,390,1]}
+{"kind":"textbox","id":"sh/bud0zqxk","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[82,448,54,42]}
+{"kind":"textbox","id":"sh/0z61cveh","slide":4,"text":"文旅酒店","textPreview":"文旅酒店","textChars":4,"textLines":1,"bbox":[154,448,240,42]}
+{"kind":"textbox","id":"sh/l0f250fm","slide":4,"text":"转化","textPreview":"转化","textChars":2,"textLines":1,"bbox":[420,448,110,42]}
+{"kind":"shape","id":"sh/94ra9w3u","slide":4,"bbox":[154,508,390,1]}
+{"kind":"textbox","id":"sh/83i90b29","slide":4,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[82,532,54,42]}
+{"kind":"textbox","id":"sh/ni9s76lo","slide":4,"text":"公益声誉","textPreview":"公益声誉","textChars":4,"textLines":1,"bbox":[154,532,240,42]}
+{"kind":"textbox","id":"sh/mh0ry1k3","slide":4,"text":"复利","textPreview":"复利","textChars":2,"textLines":1,"bbox":[420,532,110,42]}
+{"kind":"textbox","id":"sh/x8badg3q","slide":4,"text":"长期回报","textPreview":"长期回报","textChars":4,"textLines":1,"bbox":[548,520,170,40]}
+{"kind":"textbox","id":"sh/w7294b25","slide":4,"text":"从看见鹏飞，到选择鹏飞","textPreview":"从看见鹏飞，到选择鹏飞","textChars":11,"textLines":1,"bbox":[82,610,660,44]}
+{"kind":"textbox","id":"sh/v69sb6l0","slide":4,"text":"PENGFEI GROUP CUP · HYDROGEN BUILDS A NEW JOURNEY","textPreview":"PENGFEI GROUP CUP · HYDROGEN BUILDS A NEW JOURNEY","textChars":49,"textLines":1,"bbox":[72,680,780,20]}
+{"kind":"image","id":"im/qtovupcz","slide":4,"name":"","geometry":"roundRect","alt":"02-city.jpg","bbox":[770,188,438,420]}
+{"kind":"notes","id":"nt/s1icvr","slide":4,"text":""}
+{"kind":"slide","id":"sl/2sc091","slide":5,"title":"03 / 赛事体验","textShapes":12}
+{"kind":"textbox","id":"sh/gv65gneh","slide":5,"text":"03 / 赛事体验","textPreview":"03 / 赛事体验","textChars":9,"textLines":1,"bbox":[72,30,440,28]}
+{"kind":"textbox","id":"sh/fux47ixc","slide":5,"text":"四条体验线，让理念在现场被看见","textPreview":"四条体验线，让理念在现场被看见","textChars":15,"textLines":1,"bbox":[72,68,1120,78]}
+{"kind":"textbox","id":"sh/etonedwr","slide":5,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[1160,34,48,26]}
+{"kind":"shape","id":"sh/sr65c3el","slide":5,"bbox":[720,212,10,10]}
+{"kind":"textbox","id":"sh/rqx43yx0","slide":5,"text":"绿色赛道","textPreview":"绿色赛道","textChars":4,"textLines":1,"bbox":[748,198,422,36]}
+{"kind":"textbox","id":"sh/6ponatwf","slide":5,"text":"低碳补给与清洁能源保障","textPreview":"低碳补给与清洁能源保障","textChars":11,"textLines":1,"bbox":[748,236,422,48]}
+{"kind":"shape","id":"sh/doj6hcfa","slide":5,"bbox":[720,308,10,10]}
+{"kind":"textbox","id":"sh/cnq5o7ep","slide":5,"text":"阳光致敬","textPreview":"阳光致敬","textChars":4,"textLines":1,"bbox":[748,294,422,36]}
+{"kind":"textbox","id":"sh/m1kbut0j","slide":5,"text":"写下一个名字，讲述一段感恩","textPreview":"写下一个名字，讲述一段感恩","textChars":13,"textLines":1,"bbox":[748,332,422,48]}
+{"kind":"shape","id":"sh/n2tcny14","slide":5,"bbox":[720,404,10,10]}
+{"kind":"textbox","id":"sh/o32tw3i9","slide":5,"text":"公益捐赠","textPreview":"公益捐赠","textChars":4,"textLines":1,"bbox":[748,390,422,36]}
+{"kind":"textbox","id":"sh/94bupoju","slide":5,"text":"报名即参与，结果可公示","textPreview":"报名即参与，结果可公示","textChars":11,"textLines":1,"bbox":[748,428,422,48]}
+{"kind":"shape","id":"sh/ed0bq9k7","slide":5,"bbox":[720,500,10,10]}
+{"kind":"textbox","id":"sh/ze9cje1s","slide":5,"text":"城市文旅","textPreview":"城市文旅","textChars":4,"textLines":1,"bbox":[748,486,422,36]}
+{"kind":"textbox","id":"sh/0f2tsj2d","slide":5,"text":"赛事连接景区、酒店与消费","textPreview":"赛事连接景区、酒店与消费","textChars":12,"textLines":1,"bbox":[748,524,422,48]}
+{"kind":"textbox","id":"sh/1gbulojy","slide":5,"text":"PENGFEI GROUP CUP · HYDROGEN BUILDS A NEW JOURNEY","textPreview":"PENGFEI GROUP CUP · HYDROGEN BUILDS A NEW JOURNEY","textChars":49,"textLines":1,"bbox":[72,680,780,20]}
+{"kind":"image","id":"im/8jmdsrut","slide":5,"name":"","geometry":"roundRect","alt":"06-smile.jpg","bbox":[72,190,600,430]}
+{"kind":"notes","id":"nt/2sc091","slide":5,"text":""}
+{"kind":"slide","id":"sl/6kolia","slide":6,"title":"04 / 独家冠名权益","textShapes":17}
+{"kind":"textbox","id":"sh/kjydsfmp","slide":6,"text":"04 / 独家冠名权益","textPreview":"04 / 独家冠名权益","textChars":11,"textLines":1,"bbox":[72,30,440,28]}
+{"kind":"textbox","id":"sh/jipczal4","slide":6,"text":"六大权益，覆盖赛事全链路","textPreview":"六大权益，覆盖赛事全链路","textChars":12,"textLines":1,"bbox":[72,68,1120,78]}
+{"kind":"textbox","id":"sh/yhgvq54j","slide":6,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[1160,34,48,26]}
+{"kind":"shape","id":"sh/tore5k36","slide":6,"bbox":[72,198,340,150]}
+{"kind":"textbox","id":"sh/8nidwzml","slide":6,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[98,220,64,42]}
+{"kind":"textbox","id":"sh/7m9w3ulg","slide":6,"text":"独家名称权","textPreview":"独家名称权","textChars":5,"textLines":1,"bbox":[98,270,285,48]}
+{"kind":"shape","id":"sh/6lgvup4v","slide":6,"bbox":[450,198,340,150]}
+{"kind":"textbox","id":"sh/9snut032","slide":6,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[476,220,64,42]}
+{"kind":"textbox","id":"sh/oredkvmh","slide":6,"text":"全场景视觉","textPreview":"全场景视觉","textChars":5,"textLines":1,"bbox":[476,270,285,48]}
+{"kind":"shape","id":"sh/qxwbapk7","slide":6,"bbox":[828,198,340,150]}
+{"kind":"textbox","id":"sh/ry5c3u1s","slide":6,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[854,220,64,42]}
+{"kind":"textbox","id":"sh/szetcz2d","slide":6,"text":"综合体验区","textPreview":"综合体验区","textChars":5,"textLines":1,"bbox":[854,270,285,48]}
+{"kind":"shape","id":"sh/d07u5kjy","slide":6,"bbox":[72,386,340,150]}
+{"kind":"textbox","id":"sh/e1gbepkj","slide":6,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[98,408,64,42]}
+{"kind":"textbox","id":"sh/f2pc7u14","slide":6,"text":"领导礼遇","textPreview":"领导礼遇","textChars":4,"textLines":1,"bbox":[98,458,285,48]}
+{"kind":"shape","id":"sh/03ytgz29","slide":6,"bbox":[450,386,340,150]}
+{"kind":"textbox","id":"sh/147u94ju","slide":6,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[476,408,64,42]}
+{"kind":"textbox","id":"sh/25gbi9kf","slide":6,"text":"全媒体传播","textPreview":"全媒体传播","textChars":5,"textLines":1,"bbox":[476,458,285,48]}
+{"kind":"shape","id":"sh/n6pcbe10","slide":6,"bbox":[828,386,340,150]}
+{"kind":"textbox","id":"sh/zu9szeh8","slide":6,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[854,408,64,42]}
+{"kind":"textbox","id":"sh/yt0bq90n","slide":6,"text":"产业联动","textPreview":"产业联动","textChars":4,"textLines":1,"bbox":[854,458,285,48]}
+{"kind":"textbox","id":"sh/lwra1ozy","slide":6,"text":"名称绑定 → 现场体验 → 传播扩散 → 产业转化","textPreview":"名称绑定 → 现场体验 → 传播扩散 → 产业转化","textChars":25,"textLines":1,"bbox":[72,594,1120,48]}
+{"kind":"textbox","id":"sh/kvitsjyt","slide":6,"text":"PENGFEI GROUP CUP · HYDROGEN BUILDS A NEW JOURNEY","textPreview":"PENGFEI GROUP CUP · HYDROGEN BUILDS A NEW JOURNEY","textChars":49,"textLines":1,"bbox":[72,680,780,20]}
+{"kind":"notes","id":"nt/6kolia","slide":6,"text":""}
+{"kind":"slide","id":"sl/cmkcgw","slide":7,"title":"04 / 独家冠名权益","textShapes":13}
+{"kind":"textbox","id":"sh/ylwjypc7","slide":7,"text":"04 / 独家冠名权益","textPreview":"04 / 独家冠名权益","textChars":11,"textLines":1,"bbox":[72,30,440,28]}
+{"kind":"textbox","id":"sh/lon2t4bi","slide":7,"text":"鹏飞品牌覆盖跑者旅程的每个关键触点","textPreview":"鹏飞品牌覆盖跑者旅程的每个关键触点","textChars":17,"textLines":1,"bbox":[72,68,1120,78]}
+{"kind":"textbox","id":"sh/kne10zux","slide":7,"text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[1160,34,48,26]}
+{"kind":"shape","id":"sh/7qpkvuto","slide":7,"bbox":[130,346,950,4]}
+{"kind":"shape","id":"sh/mpw329c3","slide":7,"bbox":[118,326,44,44]}
+{"kind":"textbox","id":"sh/9s72x4bu","slide":7,"text":"赛前","textPreview":"赛前","textChars":2,"textLines":1,"bbox":[96,214,180,52]}
+{"kind":"textbox","id":"sh/8ryl4zu9","slide":7,"text":"赛事全称\n官宣与报名","textPreview":"赛事全称 | 官宣与报名","textChars":10,"textLines":2,"bbox":[96,392,210,112]}
+{"kind":"shape","id":"sh/3ulkjatk","slide":7,"bbox":[408,326,44,44]}
+{"kind":"textbox","id":"sh/2tcjq5cz","slide":7,"text":"到场","textPreview":"到场","textChars":2,"textLines":1,"bbox":[386,214,180,52]}
+{"kind":"textbox","id":"sh/gnu9wbqd","slide":7,"text":"主视觉\n起终点与道旗","textPreview":"主视觉 | 起终点与道旗","textChars":10,"textLines":2,"bbox":[386,392,210,112]}
+{"kind":"shape","id":"sh/ho3qpg7y","slide":7,"bbox":[698,326,44,44]}
+{"kind":"textbox","id":"sh/ulcrul87","slide":7,"text":"参赛","textPreview":"参赛","textChars":2,"textLines":1,"bbox":[676,214,180,52]}
+{"kind":"textbox","id":"sh/vml8n6ps","slide":7,"text":"参赛服\n号码布与参赛包","textPreview":"参赛服 | 号码布与参赛包","textChars":11,"textLines":2,"bbox":[676,392,210,112]}
+{"kind":"shape","id":"sh/4re90vq9","slide":7,"bbox":[988,326,44,44]}
+{"kind":"textbox","id":"sh/5snqt07u","slide":7,"text":"完赛","textPreview":"完赛","textChars":2,"textLines":1,"bbox":[966,214,180,52]}
+{"kind":"textbox","id":"sh/ipcryl8j","slide":7,"text":"奖牌证书\n颁奖与赛后专题","textPreview":"奖牌证书 | 颁奖与赛后专题","textChars":12,"textLines":2,"bbox":[966,392,210,112]}
+{"kind":"textbox","id":"sh/3q58rqpo","slide":7,"text":"从第一次看见，到完赛后二次传播","textPreview":"从第一次看见，到完赛后二次传播","textChars":15,"textLines":1,"bbox":[72,568,1000,54]}
+{"kind":"textbox","id":"sh/kvaporq5","slide":7,"text":"PENGFEI GROUP CUP · HYDROGEN BUILDS A NEW JOURNEY","textPreview":"PENGFEI GROUP CUP · HYDROGEN BUILDS A NEW JOURNEY","textChars":49,"textLines":1,"bbox":[72,680,780,20]}
+{"kind":"notes","id":"nt/cmkcgw","slide":7,"text":""}
+{"kind":"slide","id":"sl/4m23vh","slide":8,"title":"04 / 独家冠名权益","textShapes":12}
+{"kind":"textbox","id":"sh/sz6h8rq5","slide":8,"text":"04 / 独家冠名权益","textPreview":"04 / 独家冠名权益","textChars":11,"textLines":1,"bbox":[72,30,440,28]}
+{"kind":"textbox","id":"sh/ryx0fm90","slide":8,"text":"让鹏飞成为赛事舞台上的核心发起者","textPreview":"让鹏飞成为赛事舞台上的核心发起者","textChars":16,"textLines":1,"bbox":[72,68,1120,78]}
+{"kind":"textbox","id":"sh/6xoz6h8f","slide":8,"text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[1160,34,48,26]}
+{"kind":"shape","id":"sh/gnq1cbqh","slide":8,"bbox":[730,218,10,10]}
+{"kind":"textbox","id":"sh/fmx0j69w","slide":8,"text":"开幕式","textPreview":"开幕式","textChars":3,"textLines":1,"bbox":[758,204,412,36]}
+{"kind":"textbox","id":"sh/e1oza18b","slide":8,"text":"集团领导致辞并鸣枪起跑","textPreview":"集团领导致辞并鸣枪起跑","textChars":11,"textLines":1,"bbox":[758,242,412,48]}
+{"kind":"shape","id":"sh/hsvi9cri","slide":8,"bbox":[730,312,10,10]}
+{"kind":"textbox","id":"sh/wrmh07qd","slide":8,"text":"颁奖礼","textPreview":"颁奖礼","textChars":3,"textLines":1,"bbox":[758,298,412,36]}
+{"kind":"textbox","id":"sh/il4r2lwb","slide":8,"text":"为获奖选手颁奖","textPreview":"为获奖选手颁奖","textChars":7,"textLines":1,"bbox":[758,336,412,48]}
+{"kind":"shape","id":"sh/3md8vqdw","slide":8,"bbox":[730,406,10,10]}
+{"kind":"textbox","id":"sh/4nm94veh","slide":8,"text":"媒体场","textPreview":"媒体场","textChars":3,"textLines":1,"bbox":[758,392,412,36]}
+{"kind":"textbox","id":"sh/5ofqx0v2","slide":8,"text":"重点口播、采访与专属接待","textPreview":"重点口播、采访与专属接待","textChars":12,"textLines":1,"bbox":[758,430,412,48]}
+{"kind":"shape","id":"sh/qpor65wn","slide":8,"bbox":[730,500,10,10]}
+{"kind":"textbox","id":"sh/rqxszad8","slide":8,"text":"公益场","textPreview":"公益场","textChars":3,"textLines":1,"bbox":[758,486,412,36]}
+{"kind":"textbox","id":"sh/sb698vet","slide":8,"text":"捐赠仪式与成果发布","textPreview":"捐赠仪式与成果发布","textChars":9,"textLines":1,"bbox":[758,524,412,48]}
+{"kind":"textbox","id":"sh/dcfa10ve","slide":8,"text":"PENGFEI GROUP CUP · HYDROGEN BUILDS A NEW JOURNEY","textPreview":"PENGFEI GROUP CUP · HYDROGEN BUILDS A NEW JOURNEY","textChars":49,"textLines":1,"bbox":[72,680,780,20]}
+{"kind":"image","id":"im/wna1gvy5","slide":8,"name":"","geometry":"roundRect","alt":"08-celebrate.jpg","bbox":[72,190,610,430]}
+{"kind":"notes","id":"nt/4m23vh","slide":8,"text":""}
+{"kind":"slide","id":"sl/q4rghl","slide":9,"title":"05 / AI 文创展示","textShapes":9}
+{"kind":"textbox","id":"sh/8ry5kbm9","slide":9,"text":"05 / AI 文创展示","textPreview":"05 / AI 文创展示","textChars":12,"textLines":1,"bbox":[72,30,440,28]}
+{"kind":"textbox","id":"sh/7qpor6lo","slide":9,"text":"一套视觉资产，快速覆盖赛事传播全场景","textPreview":"一套视觉资产，快速覆盖赛事传播全场景","textChars":18,"textLines":1,"bbox":[72,68,1120,78]}
+{"kind":"textbox","id":"sh/mpwni143","slide":9,"text":"09","textPreview":"09","textChars":2,"textLines":1,"bbox":[1160,34,48,26]}
+{"kind":"shape","id":"sh/l4n6pg3i","slide":9,"bbox":[72,184,258,376]}
+{"kind":"textbox","id":"sh/z254n6ls","slide":9,"text":"主视觉海报","textPreview":"主视觉海报","textChars":5,"textLines":1,"bbox":[88,500,226,46]}
+{"kind":"shape","id":"sh/y1wne147","slide":9,"bbox":[358,184,258,376]}
+{"kind":"textbox","id":"sh/4zi5svmh","slide":9,"text":"赛事 IP","textPreview":"赛事 IP","textChars":5,"textLines":1,"bbox":[374,500,226,46]}
+{"kind":"shape","id":"sh/udgby1gb","slide":9,"bbox":[644,184,258,376]}
+{"kind":"textbox","id":"sh/wfyt0byh","slide":9,"text":"完赛奖牌","textPreview":"完赛奖牌","textChars":4,"textLines":1,"bbox":[660,500,226,46]}
+{"kind":"shape","id":"sh/hg7utgz2","slide":9,"bbox":[930,184,258,376]}
+{"kind":"textbox","id":"sh/na5cn6hk","slide":9,"text":"参赛服","textPreview":"参赛服","textChars":3,"textLines":1,"bbox":[946,500,226,46]}
+{"kind":"textbox","id":"sh/8bytwbi5","slide":9,"text":"统一主题  ·  快速迭代  ·  多渠道复用","textPreview":"统一主题  ·  快速迭代  ·  多渠道复用","textChars":23,"textLines":1,"bbox":[72,594,1120,48]}
+{"kind":"textbox","id":"sh/9c7upwzq","slide":9,"text":"PENGFEI GROUP CUP · HYDROGEN BUILDS A NEW JOURNEY","textPreview":"PENGFEI GROUP CUP · HYDROGEN BUILDS A NEW JOURNEY","textChars":49,"textLines":1,"bbox":[72,680,780,20]}
+{"kind":"image","id":"im/tsjm58rq","slide":9,"name":"","geometry":"roundRect","alt":"campaign_overview.png","bbox":[84,196,234,292]}
+{"kind":"image","id":"im/knq58jat","slide":9,"name":"","geometry":"roundRect","alt":"qing_runner.png","bbox":[370,196,234,292]}
+{"kind":"image","id":"im/0b25wrqh","slide":9,"name":"","geometry":"roundRect","alt":"hydrogen_future.png","bbox":[656,196,234,292]}
+{"kind":"image","id":"im/d8b6lc7q","slide":9,"name":"","geometry":"roundRect","alt":"tshirt01.png","bbox":[942,196,234,292]}
+{"kind":"notes","id":"nt/q4rghl","slide":9,"text":""}
+{"kind":"slide","id":"sl/swouxr","slide":10,"title":"06 / 传播合作","textShapes":13}
+{"kind":"textbox","id":"sh/mhcny9cn","slide":10,"text":"06 / 传播合作","textPreview":"06 / 传播合作","textChars":9,"textLines":1,"bbox":[72,30,440,28]}
+{"kind":"textbox","id":"sh/9knmtovy","slide":10,"text":"赛前蓄势、赛中引爆、赛后沉淀","textPreview":"赛前蓄势、赛中引爆、赛后沉淀","textChars":14,"textLines":1,"bbox":[72,68,1120,78]}
+{"kind":"textbox","id":"sh/oje50jud","slide":10,"text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[1160,34,48,26]}
+{"kind":"shape","id":"sh/bm54ved4","slide":10,"bbox":[72,196,340,380]}
+{"kind":"textbox","id":"sh/alwn2tcj","slide":10,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[100,224,90,62]}
+{"kind":"textbox","id":"sh/xonmxova","slide":10,"text":"赛前蓄势","textPreview":"赛前蓄势","textChars":4,"textLines":1,"bbox":[100,304,280,52]}
+{"kind":"textbox","id":"sh/wne54jup","slide":10,"text":"冠名官宣\n报名启动\n阳光故事征集","textPreview":"冠名官宣 | 报名启动 | 阳光故事征集","textChars":16,"textLines":3,"bbox":[100,386,280,142]}
+{"kind":"shape","id":"sh/jqp4zyd0","slide":10,"bbox":[450,196,340,380]}
+{"kind":"textbox","id":"sh/ipgn6tcv","slide":10,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[478,224,90,62]}
+{"kind":"textbox","id":"sh/4rm9cf29","slide":10,"text":"赛中引爆","textPreview":"赛中引爆","textChars":4,"textLines":1,"bbox":[478,304,280,52]}
+{"kind":"textbox","id":"sh/psvqlkju","slide":10,"text":"赛事直播\n短视频共创\n媒体采访","textPreview":"赛事直播 | 短视频共创 | 媒体采访","textChars":15,"textLines":3,"bbox":[478,386,280,142]}
+{"kind":"shape","id":"sh/2pkrapk3","slide":10,"bbox":[828,196,340,380]}
+{"kind":"textbox","id":"sh/3qd8ju1o","slide":10,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[856,224,90,62]}
+{"kind":"textbox","id":"sh/cfm9gz2l","slide":10,"text":"赛后沉淀","textPreview":"赛后沉淀","textChars":4,"textLines":1,"bbox":[856,304,280,52]}
+{"kind":"textbox","id":"sh/dgvap4j6","slide":10,"text":"成绩发布\n捐赠公示\n品牌纪录片","textPreview":"成绩发布 | 捐赠公示 | 品牌纪录片","textChars":15,"textLines":3,"bbox":[856,386,280,142]}
+{"kind":"textbox","id":"sh/qd4repkf","slide":10,"text":"PENGFEI GROUP CUP · HYDROGEN BUILDS A NEW JOURNEY","textPreview":"PENGFEI GROUP CUP · HYDROGEN BUILDS A NEW JOURNEY","textChars":49,"textLines":1,"bbox":[72,680,780,20]}
+{"kind":"notes","id":"nt/swouxr","slide":10,"text":""}
+{"kind":"slide","id":"sl/ldfldx","slide":11,"title":"07 / 合作建议","textShapes":14}
+{"kind":"textbox","id":"sh/43upgra5","slide":11,"text":"07 / 合作建议","textPreview":"07 / 合作建议","textChars":9,"textLines":1,"bbox":[72,30,440,28]}
+{"kind":"textbox","id":"sh/32lonmtk","slide":11,"text":"合作方式可组合，核心权益保持清晰","textPreview":"合作方式可组合，核心权益保持清晰","textChars":16,"textLines":1,"bbox":[72,68,1120,78]}
+{"kind":"textbox","id":"sh/i1c7e1sz","slide":11,"text":"11","textPreview":"11","textChars":2,"textLines":1,"bbox":[1160,34,48,26]}
+{"kind":"shape","id":"sh/d8n6tgbm","slide":11,"bbox":[72,196,340,310]}
+{"kind":"textbox","id":"sh/s7epkba1","slide":11,"text":"首选","textPreview":"首选","textChars":2,"textLines":1,"bbox":[100,224,120,36]}
+{"kind":"textbox","id":"sh/r65or6tg","slide":11,"text":"独家现金总冠名","textPreview":"独家现金总冠名","textChars":7,"textLines":1,"bbox":[100,286,284,82]}
+{"kind":"textbox","id":"sh/q5w7i1sb","slide":11,"text":"完整总冠名\n＋产业联动权益","textPreview":"完整总冠名 | ＋产业联动权益","textChars":13,"textLines":2,"bbox":[100,392,284,78]}
+{"kind":"shape","id":"sh/1wnqxgry","slide":11,"bbox":[450,196,340,310]}
+{"kind":"textbox","id":"sh/0vepobad","slide":11,"text":"灵活","textPreview":"灵活","textChars":2,"textLines":1,"bbox":[478,224,120,36]}
+{"kind":"textbox","id":"sh/qdsva58b","slide":11,"text":"现金＋资源置换","textPreview":"现金＋资源置换","textChars":7,"textLines":1,"bbox":[478,286,284,82]}
+{"kind":"textbox","id":"sh/relw3apw","slide":11,"text":"现金投入\n＋门票／房券资源","textPreview":"现金投入 | ＋门票／房券资源","textChars":13,"textLines":2,"bbox":[478,392,284,78]}
+{"kind":"shape","id":"sh/sfudcvqh","slide":11,"bbox":[828,196,340,310]}
+{"kind":"textbox","id":"sh/dg3e5072","slide":11,"text":"长期","textPreview":"长期","textChars":2,"textLines":1,"bbox":[856,224,120,36]}
+{"kind":"textbox","id":"sh/e1cve5on","slide":11,"text":"年度战略合作","textPreview":"年度战略合作","textChars":6,"textLines":1,"bbox":[856,286,284,82]}
+{"kind":"textbox","id":"sh/f2lw7ap8","slide":11,"text":"延展徒步、商会\n与系列公益活动","textPreview":"延展徒步、商会 | 与系列公益活动","textChars":15,"textLines":2,"bbox":[856,392,284,78]}
+{"kind":"shape","id":"sh/03udgf6t","slide":11,"bbox":[72,548,1136,82]}
+{"kind":"textbox","id":"sh/143e9k7y","slide":11,"text":"下一步：确认赛事基础信息、合作投入与鹏飞品牌资产","textPreview":"下一步：确认赛事基础信息、合作投入与鹏飞品牌资产","textChars":24,"textLines":1,"bbox":[104,563,1070,50]}
+{"kind":"textbox","id":"sh/ul8v2l8j","slide":11,"text":"PENGFEI GROUP CUP · HYDROGEN BUILDS A NEW JOURNEY","textPreview":"PENGFEI GROUP CUP · HYDROGEN BUILDS A NEW JOURNEY","textChars":49,"textLines":1,"bbox":[72,680,780,20]}
+{"kind":"notes","id":"nt/ldfldx","slide":11,"text":""}
+{"kind":"slide","id":"sl/ed4kto","slide":12,"title":"携手鹏飞集团","textShapes":4}
+{"kind":"shape","id":"sh/ep0n65sb","slide":12,"bbox":[0,0,20,720]}
+{"kind":"textbox","id":"sh/fq9ofa9g","slide":12,"text":"携手鹏飞集团","textPreview":"携手鹏飞集团","textChars":6,"textLines":1,"bbox":[76,82,600,48]}
+{"kind":"textbox","id":"sh/ovi5cfad","slide":12,"text":"以氢筑新程\n以爱抵达远方","textPreview":"以氢筑新程 | 以爱抵达远方","textChars":12,"textLines":2,"bbox":[72,152,640,180]}
+{"kind":"textbox","id":"sh/pwb6lkry","slide":12,"text":"绿色产业被看见\n企业担当被感知\n赛事流量被转化","textPreview":"绿色产业被看见 | 企业担当被感知 | 赛事流量被转化","textChars":23,"textLines":3,"bbox":[76,376,560,142]}
+{"kind":"shape","id":"sh/2t0naps7","slide":12,"bbox":[76,564,470,2]}
+{"kind":"textbox","id":"sh/nu9oju9s","slide":12,"text":"共同打造一场有影响力、有温度、有回报的标杆赛事","textPreview":"共同打造一场有影响力、有温度、有回报的标杆赛事","textChars":23,"textLines":1,"bbox":[76,582,600,58]}
+{"kind":"image","id":"im/8v6tk7mp","slide":12,"name":"","geometry":"rect","alt":"07-finish.jpg","bbox":[760,0,520,720]}
+{"kind":"notes","id":"nt/ed4kto","slide":12,"text":""}

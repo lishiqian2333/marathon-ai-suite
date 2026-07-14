@@ -358,28 +358,17 @@ type PptStage="brief"|"outlining"|"outline"|"building"|"preview";
 type PptMessage={role:"ai"|"user";text:string;card?:string};
 const pptSlides=[
   ["封面","鹏飞集团杯·氢筑新程马拉松"],
-  ["项目立意","这不只是一场比赛"],
-  ["项目立意","四个价值，沉淀长期品牌资产"],
-  ["项目立意","城市与产业的连接器"],
-  ["品牌契合","鹏飞与赛事，共享价值语言"],
-  ["品牌契合","氢能使命与绿色赛事同频"],
-  ["品牌契合","从产业优势到公众认知"],
-  ["品牌契合","品牌合作核心结论"],
-  ["赛事呈现","赛事总体概况"],
-  ["赛事呈现","四条跑者体验线"],
-  ["赛事呈现","公益捐赠行动闭环"],
-  ["赛事呈现","绿色低碳赛事场景"],
-  ["赛事呈现","城市文旅联动"],
-  ["冠名权益","独家总冠名权益总览"],
-  ["冠名权益","赛事命名与身份权益"],
-  ["冠名权益","视觉系统露出"],
-  ["冠名权益","现场核心场景"],
-  ["冠名权益","跑者触达与互动"],
-  ["冠名权益","企业专属激活"],
-  ["传播合作","全周期传播规划"],
-  ["传播合作","内容传播矩阵"],
-  ["传播合作","品牌资产沉淀"],
-  ["结语","以氢筑新程，践行绿色使命"],
+  ["赛事价值","品牌影响力与社会价值同向增长"],
+  ["鹏飞合作价值","一次冠名，带动五个品牌目标"],
+  ["鹏飞合作价值","赛事流量驱动产业联动"],
+  ["赛事体验","四条体验线，让理念被看见"],
+  ["冠名权益","六大权益覆盖赛事全链路"],
+  ["冠名权益","品牌覆盖跑者关键触点"],
+  ["冠名权益","鹏飞成为核心发起者"],
+  ["AI 文创展示","视觉资产覆盖传播全场景"],
+  ["传播合作","赛前、赛中、赛后持续累积"],
+  ["合作建议","三种合作方式灵活组合"],
+  ["结语","以氢筑新程，以爱抵达远方"],
 ];
 
 function PptDemo(){
@@ -388,27 +377,30 @@ function PptDemo(){
   const [current,setCurrent]=useState(0);
   const [prompt,setPrompt]=useState("");
   const [compact,setCompact]=useState(false);
+  const [presenting,setPresenting]=useState(false);
   const [messages,setMessages]=useState<PptMessage[]>([{role:"ai",text:"你好，我是汇报 PPT 助手。我已关联当前赛事方案，可以直接为鹏飞集团生成独家总冠名合作提案。"}]);
   const iframeRef=useRef<HTMLIFrameElement>(null);
   const deckRef=useRef<HTMLDivElement>(null);
-  const visibleIndexes=compact?[0,1,4,5,8,13,19,22]:pptSlides.map((_,i)=>i);
+  const visibleIndexes=compact?[0,1,2,4,5,8,10,11]:pptSlides.map((_,i)=>i);
   const busy=stage==="outlining"||stage==="building";
+  useEffect(()=>{if(!presenting)return;const onKey=(event:KeyboardEvent)=>{if(event.key==="Escape"){setPresenting(false);return}if(event.key==="ArrowRight"||event.key===" "||event.key==="PageDown"){event.preventDefault();scrollSlide(Math.min(11,current+1))}if(event.key==="ArrowLeft"||event.key==="PageUp"){event.preventDefault();scrollSlide(Math.max(0,current-1))}};window.addEventListener("keydown",onKey);return()=>window.removeEventListener("keydown",onKey)},[presenting,current]);
+  useEffect(()=>{const onFullscreen=()=>{if(!document.fullscreenElement)setPresenting(false)};document.addEventListener("fullscreenchange",onFullscreen);return()=>document.removeEventListener("fullscreenchange",onFullscreen)},[]);
   useEffect(()=>{if(!busy)return;const timer=window.setInterval(()=>setProgress(p=>Math.min(100,p+4)),90);return()=>window.clearInterval(timer)},[busy]);
-  useEffect(()=>{if(progress<100)return;if(stage==="outlining"){setStage("outline");setMessages(m=>[...m,{role:"ai",text:"提纲已完成，共规划 23 页，重点覆盖项目价值、品牌契合、冠名权益与传播合作。",card:"已生成 23 页汇报提纲"}])}else if(stage==="building"){setStage("preview");setMessages(m=>[...m,{role:"ai",text:"PPT 已生成并完成版式检查。你可以继续让我定位页面、精简结构或生成讲解建议。",card:"PPT 已生成 · 23 页"}]);}},[progress,stage]);
+  useEffect(()=>{if(progress<100)return;if(stage==="outlining"){setStage("outline");setMessages(m=>[...m,{role:"ai",text:"提纲已完成，共规划 12 页，重点覆盖赛事价值、鹏飞合作价值、冠名权益、AI 文创与合作建议。",card:"已生成 12 页大屏汇报提纲"}])}else if(stage==="building"){setStage("preview");setMessages(m=>[...m,{role:"ai",text:"PPT 已生成并完成大屏版式检查。你可以继续让我定位页面、精简结构或生成讲解建议。",card:"PPT 已生成 · 12 页"}]);}},[progress,stage]);
   function scrollSlide(index:number){setCurrent(index);window.setTimeout(()=>{const doc=iframeRef.current?.contentDocument;doc?.querySelectorAll<HTMLElement>(".slide")[index]?.scrollIntoView({behavior:"smooth",block:"start"})},30)}
   function beginOutline(){if(busy)return;setProgress(0);setStage("outlining");setMessages(m=>[...m,{role:"user",text:"根据当前赛事方案，生成面向鹏飞集团的独家总冠名合作提案。"},{role:"ai",text:"收到。我正在提取赛事立意、氢能品牌契合点、冠名权益和传播价值，并组织领导汇报逻辑。"}])}
   function buildDeck(){setProgress(0);setStage("building");setMessages(m=>[...m,{role:"user",text:"提纲没问题，开始生成 PPT。"},{role:"ai",text:"正在套用“氢筑新程”赛事官方模板，并逐页检查标题层级、内容密度和视觉一致性。"}])}
-  function send(e:React.FormEvent){e.preventDefault();const value=prompt.trim();if(!value||busy)return;setPrompt("");setMessages(m=>[...m,{role:"user",text:value}]);if(stage==="brief"){beginOutline();return}if(stage==="outline"&&/生成|开始|确认|可以/.test(value)){buildDeck();return}if(/8页|精简|领导版|压缩/.test(value)){setCompact(true);setMessages(m=>[...m,{role:"ai",text:"已压缩为 8 页领导速览版，保留项目立意、品牌契合、核心权益与传播合作。",card:"已切换 · 8 页领导版"}]);return}let target=-1;if(/品牌|鹏飞|氢能|契合/.test(value))target=4;else if(/传播|曝光|媒体/.test(value))target=19;else if(/权益|冠名/.test(value))target=13;else if(/公益|捐赠/.test(value))target=10;else if(/下一页/.test(value))target=Math.min(current+1,22);else if(/上一页/.test(value))target=Math.max(current-1,0);else {const match=value.match(/第\s*(\d+)\s*页/);if(match)target=Math.max(0,Math.min(22,Number(match[1])-1))}if(target>=0){scrollSlide(target);setMessages(m=>[...m,{role:"ai",text:`已定位到第 ${target+1} 页「${pptSlides[target][1]}」。`,card:`当前页面 · ${String(target+1).padStart(2,"0")}` }]);return}if(/备注|演讲|怎么讲|讲解/.test(value)){setMessages(m=>[...m,{role:"ai",text:`这一页建议先讲结论：“${pptSlides[current][1]}”。随后用 30 秒说明它与鹏飞绿色使命及赛事公众价值的连接，最后落到可执行的合作动作。`,card:"当前页演讲建议 · 约 45 秒"}]);return}setMessages(m=>[...m,{role:"ai",text:"我已理解你的调整方向。演示版支持精简页数、定位品牌/传播/权益页面，以及生成当前页演讲备注。"}])}
+  function send(e:React.FormEvent){e.preventDefault();const value=prompt.trim();if(!value||busy)return;setPrompt("");setMessages(m=>[...m,{role:"user",text:value}]);if(stage==="brief"){beginOutline();return}if(stage==="outline"&&/生成|开始|确认|可以/.test(value)){buildDeck();return}if(/8页|精简|领导版|压缩/.test(value)){setCompact(true);setMessages(m=>[...m,{role:"ai",text:"已压缩为 8 页领导速览版，保留赛事价值、鹏飞合作价值、核心权益、AI 文创与合作建议。",card:"已切换 · 8 页领导版"}]);return}let target=-1;if(/品牌|鹏飞|氢能|契合/.test(value))target=2;else if(/传播|曝光|媒体/.test(value))target=9;else if(/文创|AI|海报|奖牌|参赛服/.test(value))target=8;else if(/权益|冠名/.test(value))target=5;else if(/公益|捐赠|价值/.test(value))target=1;else if(/下一页/.test(value))target=Math.min(current+1,11);else if(/上一页/.test(value))target=Math.max(current-1,0);else {const match=value.match(/第\s*(\d+)\s*页/);if(match)target=Math.max(0,Math.min(11,Number(match[1])-1))}if(target>=0){scrollSlide(target);setMessages(m=>[...m,{role:"ai",text:`已定位到第 ${target+1} 页「${pptSlides[target][1]}」。`,card:`当前页面 · ${String(target+1).padStart(2,"0")}` }]);return}if(/备注|演讲|怎么讲|讲解/.test(value)){setMessages(m=>[...m,{role:"ai",text:`这一页建议先讲结论：“${pptSlides[current][1]}”。随后用 30 秒说明它与鹏飞绿色使命及赛事公众价值的连接，最后落到可执行的合作动作。`,card:"当前页演讲建议 · 约 45 秒"}]);return}setMessages(m=>[...m,{role:"ai",text:"我已理解你的调整方向。演示版支持精简页数、定位品牌/传播/权益页面，以及生成当前页演讲备注。"}])}
   return <section className="ppt-workspace">
     <aside className="ppt-ai-rail"><div className="panel-heading"><span>01</span><div><b>AI 汇报助手</b><small>通过对话规划、生成与修改</small></div></div>
       <div className="ppt-source"><i>✓</i><div><b>赛事方案已关联</b><span>鹏飞集团杯·氢筑新程马拉松</span></div><em>已解析</em></div>
       <div className="ppt-chat">{messages.slice(-7).map((m,i)=><div className={`ppt-bubble ${m.role}`} key={`${m.text}-${i}`}>{m.role==="ai"&&<span>AI</span>}<div><p>{m.text}</p>{m.card&&<button onClick={()=>stage==="preview"&&scrollSlide(current)}><i>✦</i>{m.card}<b>→</b></button>}</div></div>)}{busy&&<div className="ppt-bubble ai"><span>AI</span><div><p className="ppt-thinking"><i/><i/><i/>正在生成，已完成 {progress}%</p></div></div>}</div>
-      <div className="ppt-quick">{stage==="brief"?<button onClick={beginOutline}>生成总冠名合作提案</button>:stage==="outline"?<button onClick={buildDeck}>确认提纲并生成 PPT</button>:<><button onClick={()=>{setCompact(true);setMessages(m=>[...m,{role:"user",text:"压缩成 8 页领导版"},{role:"ai",text:"已压缩为 8 页领导速览版，保留项目立意、品牌契合、核心权益与传播合作。",card:"已切换 · 8 页领导版"}])}}>8页领导版</button><button onClick={()=>{scrollSlide(4);setMessages(m=>[...m,{role:"user",text:"重点讲品牌契合"},{role:"ai",text:"已定位品牌契合章节，建议重点说明氢能使命、绿色赛事和公众沟通之间的共同价值。",card:"已定位 · 品牌契合"}])}}>品牌契合</button><button onClick={()=>setMessages(m=>[...m,{role:"user",text:"生成当前页演讲备注"},{role:"ai",text:`已为第 ${current+1} 页生成演讲备注：先讲核心结论，再说明品牌关联，最后落到执行动作。`,card:"当前页演讲建议 · 约 45 秒"}])}>演讲备注</button></>}</div>
+      <div className="ppt-quick">{stage==="brief"?<button onClick={beginOutline}>生成总冠名合作提案</button>:stage==="outline"?<button onClick={buildDeck}>确认提纲并生成 PPT</button>:<><button onClick={()=>{setCompact(true);setMessages(m=>[...m,{role:"user",text:"压缩成 8 页领导版"},{role:"ai",text:"已压缩为 8 页领导速览版，保留赛事价值、鹏飞合作价值、核心权益、AI 文创与合作建议。",card:"已切换 · 8 页领导版"}])}}>8页领导版</button><button onClick={()=>{scrollSlide(2);setMessages(m=>[...m,{role:"user",text:"重点讲鹏飞合作价值"},{role:"ai",text:"已定位鹏飞合作价值章节，建议重点说明氢能主业、文旅酒店和企业责任的联动回报。",card:"已定位 · 鹏飞合作价值"}])}}>合作价值</button><button onClick={()=>setMessages(m=>[...m,{role:"user",text:"生成当前页演讲备注"},{role:"ai",text:`已为第 ${current+1} 页生成演讲备注：先讲核心结论，再说明品牌关联，最后落到执行动作。`,card:"当前页演讲建议 · 约 45 秒"}])}>演讲备注</button></>}</div>
       <form className="ppt-chat-input" onSubmit={send}><textarea value={prompt} onChange={e=>setPrompt(e.target.value)} placeholder={stage==="brief"?"例如：生成面向鹏飞集团的冠名提案……":"继续输入调整要求……"}/><div><span>AI 会控制当前汇报</span><button disabled={!prompt.trim()||busy}>↑</button></div></form>
     </aside>
     <main className="ppt-main"><div className="ppt-main-head"><div><span className="step">02</span><p><b>{stage==="preview"?"PPT 预览":"汇报结构规划"}</b><small>独家总冠名合作提案 · 正式简洁 · 绿色科技</small></p></div><span className={`stage-pill ${busy?"analyzing":stage}`}><i/>{stage==="brief"?"等待生成需求":stage==="outlining"?"AI 正在梳理汇报逻辑":stage==="outline"?"提纲已生成":stage==="building"?"AI 正在生成页面":"PPT 已生成"}</span></div>
-      {stage==="brief"?<div className="ppt-empty"><span>✦</span><h2>从赛事方案到一套完整汇报</h2><p>在左侧直接告诉 AI 汇报对象与用途，AI 将先规划提纲，再生成视觉统一的演示文稿。</p><div><i>1</i>理解方案<b>→</b><i>2</i>生成提纲<b>→</b><i>3</i>输出 PPT</div></div>:busy?<div className="ppt-generating"><div className="ppt-orbit"><span>AI</span><i/><i/><i/></div><h2>{stage==="outlining"?"正在搭建有说服力的汇报结构":"正在逐页生成并检查演示文稿"}</h2><p>{stage==="outlining"?"项目价值 → 品牌契合 → 赛事呈现 → 冠名权益 → 传播合作":"应用赛事模板 · 匹配内容层级 · 检查页面完整性"}</p><div><i><b style={{width:`${progress}%`}}/></i><span>{progress}%</span></div></div>:stage==="outline"?<div className="ppt-outline"><div className="outline-summary"><span>✦ AI 已完成结构规划</span><b>23 页 · 5 个章节 · 一页一个核心观点</b><button onClick={buildDeck}>确认提纲，生成 PPT →</button></div><div className="outline-list">{pptSlides.map((s,i)=><div key={i}><em>{String(i+1).padStart(2,"0")}</em><span><b>{s[1]}</b><small>{s[0]} · 已匹配推荐版式</small></span><i>⋮⋮</i></div>)}</div></div>:<div className="ppt-deck" ref={deckRef}><aside className="ppt-thumbs"><div><b>{compact?"领导版":"完整版"}</b><span>{visibleIndexes.length} 页</span></div>{visibleIndexes.map(i=><button key={i} className={current===i?"active":""} onClick={()=>scrollSlide(i)}><em>{String(i+1).padStart(2,"0")}</em><span><b>{pptSlides[i][0]}</b><small>{pptSlides[i][1]}</small></span></button>)}</aside><section className="ppt-canvas"><div className="ppt-toolbar"><span><i/>视觉与内容检查通过</span><div><button onClick={()=>scrollSlide(Math.max(0,current-1))}>←</button><b>{current+1} / 23</b><button onClick={()=>scrollSlide(Math.min(22,current+1))}>→</button><button onClick={()=>deckRef.current?.requestFullscreen()}>全屏演示</button></div></div><div className="ppt-frame"><iframe ref={iframeRef} src="/ppt-slides/Preview.html" title="PPT 页面预览" onLoad={()=>scrollSlide(current)}/></div><div className="ppt-caption"><div><b>{pptSlides[current][1]}</b><span>{pptSlides[current][0]} · 当前页面</span></div><div><button onClick={()=>setMessages(m=>[...m,{role:"ai",text:`已为第 ${current+1} 页生成演讲备注：先讲核心结论，再说明品牌关联，最后落到执行动作。`,card:"演讲备注已生成"}])}>✦ 生成本页讲稿</button><a href="/downloads/鹏飞集团杯·氢筑新程马拉松·独家总冠名合作提案.pptx" download>↓ 导出 PPT</a></div></div></section></div>}
+      {stage==="brief"?<div className="ppt-empty"><span>✦</span><h2>从赛事方案到一套完整汇报</h2><p>在左侧直接告诉 AI 汇报对象与用途，AI 将先规划提纲，再生成视觉统一的演示文稿。</p><div><i>1</i>理解方案<b>→</b><i>2</i>生成提纲<b>→</b><i>3</i>输出 PPT</div></div>:busy?<div className="ppt-generating"><div className="ppt-orbit"><span>AI</span><i/><i/><i/></div><h2>{stage==="outlining"?"正在搭建有说服力的汇报结构":"正在逐页生成并检查演示文稿"}</h2><p>{stage==="outlining"?"赛事价值 → 鹏飞合作价值 → 冠名权益 → AI 文创 → 合作建议":"应用大屏模板 · 匹配内容层级 · 检查页面完整性"}</p><div><i><b style={{width:`${progress}%`}}/></i><span>{progress}%</span></div></div>:stage==="outline"?<div className="ppt-outline"><div className="outline-summary"><span>✦ AI 已完成结构规划</span><b>12 页 · 7 个章节 · 一页一个核心观点</b><button onClick={buildDeck}>确认提纲，生成 PPT →</button></div><div className="outline-list">{pptSlides.map((s,i)=><div key={i}><em>{String(i+1).padStart(2,"0")}</em><span><b>{s[1]}</b><small>{s[0]} · 已匹配大屏版式</small></span><i>⋮⋮</i></div>)}</div></div>:<div className={`ppt-deck ${presenting?"presenting":""}`} ref={deckRef}><aside className="ppt-thumbs"><div><b>{compact?"领导版":"完整版"}</b><span>{visibleIndexes.length} 页</span></div>{visibleIndexes.map(i=><button key={i} className={current===i?"active":""} onClick={()=>scrollSlide(i)}><em>{String(i+1).padStart(2,"0")}</em><span><b>{pptSlides[i][0]}</b><small>{pptSlides[i][1]}</small></span></button>)}</aside><section className="ppt-canvas"><div className="ppt-toolbar"><span><i/>大屏汇报 · 一页一个核心观点</span><div><button onClick={()=>scrollSlide(Math.max(0,current-1))}>←</button><b>{current+1} / 12</b><button onClick={()=>scrollSlide(Math.min(11,current+1))}>→</button><button onClick={async()=>{setPresenting(x=>!x);if(!presenting)await deckRef.current?.requestFullscreen?.()}}>{presenting?"退出演示":"汇报演示"}</button></div></div><div className="ppt-frame"><iframe ref={iframeRef} src="/ppt-slides/Preview.html" title="PPT 页面预览" onLoad={()=>scrollSlide(current)}/></div><div className="ppt-caption"><div><b>{pptSlides[current][1]}</b><span>{pptSlides[current][0]} · 当前页面</span></div><div><button onClick={()=>setMessages(m=>[...m,{role:"ai",text:`已为第 ${current+1} 页生成演讲备注：先讲核心结论，再说明品牌关联，最后落到执行动作。`,card:"演讲备注已生成"}])}>✦ 生成本页讲稿</button><a href="/downloads/鹏飞集团杯·氢筑新程马拉松·独家总冠名合作提案.pptx" download>↓ 导出大屏版 PPT</a></div></div></section></div>}
     </main>
-    <aside className="ppt-info"><div className="panel-heading"><span>03</span><div><b>汇报设置</b><small>由对话自动提取</small></div></div>{[["汇报类型","独家总冠名合作提案"],["汇报对象","鹏飞集团决策层"],["内容页数",compact?"8 页领导版":"23 页完整版"],["视觉风格","正式 · 简洁 · 绿色科技"],["模板","氢筑新程官方模板"]].map(x=><div className="ppt-setting" key={x[0]}><span>{x[0]}</span><b>{x[1]}</b></div>)}<div className="ppt-insight"><span>✦</span><div><b>AI 汇报策略</b><p>先建立赛事公共价值，再证明鹏飞品牌与绿色赛事的天然契合，最终用权益和传播方案推动合作决策。</p></div></div><div className="ppt-files"><b>本次使用资料</b><span>✓ 赛事策划方案</span><span>✓ 品牌合作要点</span><span>✓ 官方视觉模板</span></div></aside>
+    <aside className="ppt-info"><div className="panel-heading"><span>03</span><div><b>汇报设置</b><small>由对话自动提取</small></div></div>{[["汇报类型","独家总冠名合作提案"],["汇报对象","鹏飞集团决策层"],["内容页数",compact?"8 页领导版":"12 页大屏版"],["视觉风格","正式 · 简洁 · 绿色科技"],["展示适配","16:9 · 1920×1080"]].map(x=><div className="ppt-setting" key={x[0]}><span>{x[0]}</span><b>{x[1]}</b></div>)}<div className="ppt-insight"><span>✦</span><div><b>AI 汇报策略</b><p>先建立赛事公共价值，再证明鹏飞品牌与绿色赛事的天然契合，最终用权益和传播方案推动合作决策。</p></div></div><div className="ppt-files"><b>本次使用资料</b><span>✓ 赛事策划方案</span><span>✓ 品牌合作要点</span><span>✓ AI 文创视觉资产</span></div></aside>
   </section>
 }
