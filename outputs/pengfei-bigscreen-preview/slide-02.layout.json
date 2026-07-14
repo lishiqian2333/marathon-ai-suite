@@ -1,0 +1,872 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/vdxax5",
+    "id": "vdxax5",
+    "slide": 2,
+    "layoutId": "15b1b663-8318-4cb2-971e-a1970fc18d23",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "62f87401-083a-4ca2-b822-bda3e2ca611f",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#F3F0E7",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "+mn-lt"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "15b1b663-8318-4cb2-971e-a1970fc18d23",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "62f87401-083a-4ca2-b822-bda3e2ca611f",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "62f87401-083a-4ca2-b822-bda3e2ca611f",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/k3mtszqt",
+      "id": "1",
+      "bbox": [
+        72,
+        28,
+        520,
+        30
+      ],
+      "geometry": "rect",
+      "text": "01 / 赛事理念",
+      "textPreview": "01 / 赛事理念",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 22,
+        "typeface": "+mn-lt",
+        "color": "#0B7358",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "01 / 赛事理念"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "01 / 赛事理念",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "color": "#0B7358",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "01 / 赛事理念",
+              "fontSize": 22,
+              "color": "#0B7358",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/z2dsju98",
+      "id": "2",
+      "bbox": [
+        72,
+        66,
+        1120,
+        82
+      ],
+      "geometry": "rect",
+      "text": "一场奔跑，连接绿色、公益与城市",
+      "textPreview": "一场奔跑，连接绿色、公益与城市",
+      "resolvedFontSize": 50,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 50,
+        "typeface": "+mn-lt",
+        "color": "#10231F",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "一场奔跑，连接绿色、公益与城市"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "一场奔跑，连接绿色、公益与城市",
+          "resolvedTextStyle": {
+            "fontSize": 50,
+            "color": "#10231F",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "一场奔跑，连接绿色、公益与城市",
+              "fontSize": 50,
+              "color": "#10231F",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/y14bqp8n",
+      "id": "3",
+      "bbox": [
+        1150,
+        28,
+        58,
+        30
+      ],
+      "geometry": "rect",
+      "text": "02",
+      "textPreview": "02",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 22,
+        "typeface": "+mn-lt",
+        "color": "#0B7358",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "02"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "02",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "color": "#0B7358",
+            "bold": true,
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "02",
+              "fontSize": 22,
+              "color": "#0B7358",
+              "bold": true,
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/4j6p07e1",
+      "id": "4",
+      "bbox": [
+        72,
+        184,
+        650,
+        430
+      ],
+      "geometry": "roundRect",
+      "alt": "05-runner.jpg",
+      "contentType": "image/jpeg",
+      "imageFit": "cover",
+      "imageMask": {
+        "geometry": "roundRect",
+        "adjustmentList": [
+          {
+            "name": "adj",
+            "formula": "val 2791"
+          }
+        ]
+      },
+      "asset": {
+        "assetId": "8c699e3e-b6a9-455c-88ab-b585f86de2fc",
+        "contentType": "image/jpeg",
+        "byteLength": 4913003
+      }
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8r6twzqp",
+      "id": "5",
+      "bbox": [
+        760,
+        184,
+        448,
+        126
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#DCE5E1",
+      "lineWidth": 1
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7qdsnu94",
+      "id": "6",
+      "bbox": [
+        786,
+        204,
+        396,
+        38
+      ],
+      "geometry": "rect",
+      "text": "GREEN",
+      "textPreview": "GREEN",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "color": "#0B7358",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "GREEN"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "GREEN",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "color": "#0B7358",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "GREEN",
+              "fontSize": 24,
+              "color": "#0B7358",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mp4bup8j",
+      "id": "7",
+      "bbox": [
+        786,
+        252,
+        396,
+        38
+      ],
+      "geometry": "rect",
+      "text": "绿色\n让产业理念被看见",
+      "textPreview": "绿色 | 让产业理念被看见",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "color": "#10231F",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "绿色"
+          },
+          {
+            "index": 2,
+            "text": "让产业理念被看见"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "绿色",
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "color": "#10231F",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "绿色",
+              "fontSize": 32,
+              "color": "#10231F",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "让产业理念被看见",
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "color": "#10231F",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "让产业理念被看见",
+              "fontSize": 32,
+              "color": "#10231F",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/pwbad0r6",
+      "id": "8",
+      "bbox": [
+        760,
+        330,
+        448,
+        126
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#DCE5E1",
+      "lineWidth": 1
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ov2tkfql",
+      "id": "9",
+      "bbox": [
+        786,
+        350,
+        396,
+        38
+      ],
+      "geometry": "rect",
+      "text": "LOVE",
+      "textPreview": "LOVE",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "color": "#0B7358",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "LOVE"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "LOVE",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "color": "#0B7358",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "LOVE",
+              "fontSize": 24,
+              "color": "#0B7358",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/exsvu5wv",
+      "id": "10",
+      "bbox": [
+        786,
+        398,
+        396,
+        38
+      ],
+      "geometry": "rect",
+      "text": "公益\n让品牌温度被感知",
+      "textPreview": "公益 | 让品牌温度被感知",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "color": "#10231F",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "公益"
+          },
+          {
+            "index": 2,
+            "text": "让品牌温度被感知"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "公益",
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "color": "#10231F",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "公益",
+              "fontSize": 32,
+              "color": "#10231F",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "让品牌温度被感知",
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "color": "#10231F",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "让品牌温度被感知",
+              "fontSize": 32,
+              "color": "#10231F",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fy1w3qxg",
+      "id": "11",
+      "bbox": [
+        760,
+        476,
+        448,
+        138
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#DCE5E1",
+      "lineWidth": 1
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0zadwve1",
+      "id": "12",
+      "bbox": [
+        786,
+        496,
+        396,
+        38
+      ],
+      "geometry": "rect",
+      "text": "CITY",
+      "textPreview": "CITY",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "color": "#0B7358",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "CITY"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "CITY",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "color": "#0B7358",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "CITY",
+              "fontSize": 24,
+              "color": "#0B7358",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/10je50fm",
+      "id": "13",
+      "bbox": [
+        786,
+        544,
+        396,
+        50
+      ],
+      "geometry": "rect",
+      "text": "城市\n让赛事流量被激活",
+      "textPreview": "城市 | 让赛事流量被激活",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "color": "#10231F",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "城市"
+          },
+          {
+            "index": 2,
+            "text": "让赛事流量被激活"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "城市",
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "color": "#10231F",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "城市",
+              "fontSize": 32,
+              "color": "#10231F",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "让赛事流量被激活",
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "color": "#10231F",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "让赛事流量被激活",
+              "fontSize": 32,
+              "color": "#10231F",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/21cvy5w7",
+      "id": "14",
+      "bbox": [
+        72,
+        678,
+        660,
+        24
+      ],
+      "geometry": "rect",
+      "text": "鹏飞集团杯 · 氢筑新程马拉松",
+      "textPreview": "鹏飞集团杯 · 氢筑新程马拉松",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#5E6D68",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "鹏飞集团杯 · 氢筑新程马拉松"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "鹏飞集团杯 · 氢筑新程马拉松",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#5E6D68",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "鹏飞集团杯 · 氢筑新程马拉松",
+              "fontSize": 20,
+              "color": "#5E6D68",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

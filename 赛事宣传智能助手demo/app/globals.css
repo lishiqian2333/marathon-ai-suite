@@ -84,8 +84,31 @@
 
 /* Big-screen presentation: follow the image-first creative module density. */
 @media(min-width:1280px){
-  .photo-video-workspace{grid-template-columns:250px minmax(0,1fr);height:calc(100vh - 70px);min-height:0}
+  .workspace{grid-template-columns:clamp(340px,21vw,420px) minmax(0,1fr) 340px;height:calc(100vh - 70px);min-height:0}
+  .setup-panel{padding:clamp(22px,1.6vw,32px)}
+  .setup-panel .panel-heading b{font-size:15px}.setup-panel .panel-heading small{font-size:10px}
+  .setup-panel .field-label{font-size:12px;margin-top:18px}.setup-panel .field-label em{font-size:10px}
+  .setup-panel .scene{padding:11px}.setup-panel .scene b{font-size:12px}.setup-panel .scene small{font-size:10px}
+  .setup-panel .input-wrap{padding:9px 11px}.setup-panel .input-wrap span{font-size:10px}.setup-panel .input-wrap input,.setup-panel .input-wrap textarea{font-size:12px}
+  .setup-panel .tone-list button,.setup-panel .length-list button{font-size:12px;padding:10px}
+  .setup-panel .generate{height:48px;font-size:13px}.setup-panel .safe-note{font-size:10px;line-height:1.6}
+  .setup-panel,.setup-panel .panel-heading b,.setup-panel .panel-heading small,.setup-panel .field-label,.setup-panel .field-label em,.setup-panel .scene,.setup-panel .scene small,.setup-panel .input-wrap span,.setup-panel .input-wrap input,.setup-panel .input-wrap textarea,.setup-panel .tone-list button,.setup-panel .length-list button,.setup-panel .safe-note{color:#000}
+  .setup-panel input::placeholder,.setup-panel textarea::placeholder{color:#333;opacity:1}
+
+  .photo-video-workspace{grid-template-columns:clamp(340px,21vw,420px) minmax(0,1fr);height:calc(100vh - 70px);min-height:0}
   .video-settings{display:none}
+  .photo-rail{padding:clamp(22px,1.6vw,32px)}
+  .photo-rail .panel-heading b{font-size:15px}.photo-rail .panel-heading small{font-size:10px}
+  .video-chat-messages{min-height:220px;max-height:34vh;gap:13px}
+  .video-bubble{gap:10px}.video-bubble>span{width:32px;height:32px;font-size:9px}
+  .video-bubble p{padding:11px 13px;font-size:clamp(12px,.78vw,15px);line-height:1.7}
+  .chat-import-actions label,.chat-import-actions button{height:42px;font-size:12px}
+  .video-chat-input{padding:11px}.video-chat-input textarea{height:68px;font-size:13px}
+  .video-chat-input>div span{font-size:10px}.video-chat-input button{width:34px;height:34px;font-size:16px}
+  .chat-generate{height:46px;font-size:13px}
+  .photo-rail,.photo-rail .panel-heading b,.photo-rail .panel-heading small,.video-bubble p,.chat-import-actions label,.chat-import-actions button,.video-chat-input textarea,.video-chat-input>div span{color:#000}
+  .video-bubble.user p,.video-chat-input button,.chat-generate{color:#fff}
+  .video-chat-input textarea::placeholder{color:#333;opacity:1}
   .creation-stage{padding:24px 32px 32px}
   .photo-analysis-card{min-height:min(58vh,620px);grid-template-columns:minmax(0,1.45fr) minmax(340px,.55fr)}
   .analysis-visual{min-height:min(58vh,620px)}
@@ -101,8 +124,18 @@
   .story-thumbs button{height:clamp(72px,6vw,108px)}
   .strip-title b{font-size:16px}.strip-title span{font-size:13px}
 
-  .ppt-workspace{grid-template-columns:250px minmax(0,1fr);height:calc(100vh - 70px);min-height:0}
+  .ppt-workspace{grid-template-columns:clamp(340px,21vw,420px) minmax(0,1fr);height:calc(100vh - 70px);min-height:0}
   .ppt-info{display:none}
+  .ppt-ai-rail{padding:clamp(22px,1.6vw,32px)}
+  .ppt-ai-rail .panel-heading b{font-size:15px}.ppt-ai-rail .panel-heading small{font-size:10px}
+  .ppt-source{grid-template-columns:36px 1fr auto;padding:13px;gap:10px}.ppt-source>i{width:36px;height:36px}.ppt-source b{font-size:12px}.ppt-source span,.ppt-source em{font-size:10px}
+  .ppt-chat{gap:13px}.ppt-bubble{gap:10px}.ppt-bubble>span{width:32px;height:32px;font-size:9px}
+  .ppt-bubble p{padding:11px 13px;font-size:clamp(12px,.78vw,15px);line-height:1.7}.ppt-bubble button{padding:9px 10px;font-size:11px}
+  .ppt-quick{gap:7px;margin-bottom:11px}.ppt-quick button{min-width:100px;padding:10px 7px;font-size:11px}
+  .ppt-chat-input{padding:11px}.ppt-chat-input textarea{height:68px;font-size:13px}.ppt-chat-input span{font-size:10px}.ppt-chat-input button{width:34px;height:34px;font-size:16px}
+  .ppt-ai-rail,.ppt-ai-rail .panel-heading b,.ppt-ai-rail .panel-heading small,.ppt-source b,.ppt-source span,.ppt-source em,.ppt-bubble p,.ppt-bubble button,.ppt-quick button,.ppt-chat-input textarea,.ppt-chat-input span{color:#000}
+  .ppt-bubble.user p,.ppt-chat-input button{color:#fff}
+  .ppt-chat-input textarea::placeholder{color:#333;opacity:1}
   .ppt-main{padding:18px 26px 24px}
   .ppt-deck{grid-template-columns:150px minmax(0,1fr);height:calc(100vh - 142px)}
   .ppt-frame{padding:18px}
@@ -120,11 +153,15 @@
 .ppt-deck.presenting .ppt-frame{padding:clamp(12px,2vh,24px);background:#07110e}
 .ppt-deck.presenting .ppt-frame iframe{width:min(calc((100vh - 84px) * 16 / 9),100vw);height:min(calc(100vw * 9 / 16),calc(100vh - 84px));max-width:none;max-height:none;aspect-ratio:16/9}
 @media(max-width:1366px) and (max-height:820px){
-  .photo-video-workspace{grid-template-columns:220px minmax(0,1fr)}
+  .workspace{grid-template-columns:300px minmax(0,1fr)}
+  .assist-panel{display:none}
+  .chat-control{left:328px;right:28px}
+  .setup-panel{padding:16px}
+  .photo-video-workspace{grid-template-columns:300px minmax(0,1fr)}
   .photo-rail{padding:16px}.creation-stage{padding:16px 20px 22px}
   .photo-analysis-card,.analysis-visual{min-height:390px}
   .analysis-panel{padding:28px}
   .storyline-strip{margin-top:10px;padding:10px}.story-thumbs button{height:62px}
-  .ppt-workspace{grid-template-columns:220px minmax(0,1fr)}
+  .ppt-workspace{grid-template-columns:300px minmax(0,1fr)}
   .ppt-main{padding:12px 18px 18px}.ppt-deck{height:calc(100vh - 126px)}
 }

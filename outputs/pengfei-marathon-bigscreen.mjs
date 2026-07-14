@@ -26,6 +26,8 @@ const FONT = "Microsoft YaHei";
 const assets = {
   start: path.join(ROOT, "赛事宣传智能助手demo/public/demo-media/01-start.jpg"),
   city: path.join(ROOT, "赛事宣传智能助手demo/public/demo-media/02-city.jpg"),
+  pack: path.join(ROOT, "赛事宣传智能助手demo/public/demo-media/03-pack.jpg"),
+  pacer: path.join(ROOT, "赛事宣传智能助手demo/public/demo-media/04-pacer.jpg"),
   runner: path.join(ROOT, "赛事宣传智能助手demo/public/demo-media/05-runner.jpg"),
   smile: path.join(ROOT, "赛事宣传智能助手demo/public/demo-media/06-smile.jpg"),
   finish: path.join(ROOT, "赛事宣传智能助手demo/public/demo-media/07-finish.jpg"),
@@ -52,6 +54,7 @@ function rect(slide, x, y, w, h, fill, radius = false, line = "none") {
 }
 
 function text(slide, value, x, y, w, h, size, color = C.ink, bold = false, opts = {}) {
+  if (size < 20) throw new Error(`Big-screen text must be >=20px: ${value} (${size}px)`);
   const box = slide.shapes.add({
     geometry: "textbox",
     name: opts.name,
@@ -86,169 +89,164 @@ async function image(slide, file, x, y, w, h, fit = "cover", radius = false) {
 function header(slide, section, title, page, dark = false) {
   const main = dark ? C.white : C.ink;
   const muted = dark ? C.mint : C.green;
-  text(slide, section, SAFE, 30, 440, 28, 18, muted, true);
-  text(slide, title, SAFE, 68, 1120, 78, 48, main, true);
-  text(slide, String(page).padStart(2, "0"), 1160, 34, 48, 26, 18, muted, true, { align: "right" });
+  text(slide, section, SAFE, 28, 520, 30, 22, muted, true);
+  text(slide, title, SAFE, 66, 1120, 82, 50, main, true);
+  text(slide, String(page).padStart(2, "0"), 1150, 28, 58, 30, 22, muted, true, { align: "right" });
 }
 
 function footer(slide, dark = false) {
-  const color = dark ? C.mint : C.gray;
-  text(slide, "PENGFEI GROUP CUP · HYDROGEN BUILDS A NEW JOURNEY", SAFE, 680, 780, 20, 15, color, false);
+  text(slide, "鹏飞集团杯 · 氢筑新程马拉松", SAFE, 678, 660, 24, 20, dark ? C.mint : C.gray, true);
 }
 
 function bullet(slide, label, body, x, y, w, dark = false) {
-  rect(slide, x, y + 14, 10, 10, C.lime, true);
-  text(slide, label, x + 28, y, w - 28, 36, 28, dark ? C.white : C.ink, true);
-  if (body) text(slide, body, x + 28, y + 38, w - 28, 48, 24, dark ? C.mint : C.gray, false);
+  rect(slide, x, y + 15, 12, 12, C.lime, true);
+  text(slide, label, x + 30, y, w - 30, 42, 30, dark ? C.white : C.ink, true);
+  if (body) text(slide, body, x + 30, y + 46, w - 30, 42, 28, dark ? C.mint : C.gray);
 }
 
-function metric(slide, big, label, x, y, w, accent = C.lime, dark = false) {
-  text(slide, big, x, y, w, 80, 64, accent, true);
-  text(slide, label, x, y + 82, w, 42, 24, dark ? C.white : C.ink, true);
+function bigCard(slide, kicker, title, x, y, w, h, dark = false) {
+  rect(slide, x, y, w, h, dark ? "#16483D" : C.white, true, dark ? C.green : C.light);
+  text(slide, kicker, x + 26, y + 20, w - 52, 38, 24, dark ? C.lime : C.green, true);
+  text(slide, title, x + 26, y + 68, w - 52, h - 88, 32, dark ? C.white : C.ink, true);
 }
 
 const deck = Presentation.create({ slideSize: { width: W, height: H } });
 
-// 01 首页：左右 44/56，大标题与赛事现场图形成第一视觉。
+// 01 封面：一句主题 + 一张赛事大图。
 {
   const s = deck.slides.add();
   s.background.fill = C.ink;
-  await image(s, assets.start, 720, 0, 560, 720, "cover");
+  await image(s, assets.start, 700, 0, 580, 720, "cover");
   rect(s, 0, 0, 20, 720, C.lime);
-  text(s, "鹏飞集团杯", 76, 76, 560, 48, 30, C.lime, true);
-  text(s, "氢筑新程\n马拉松", 72, 146, 610, 190, 72, C.white, true);
-  text(s, "氢筑新程，为爱奔跑", 76, 368, 580, 54, 34, C.mint, true);
-  rect(s, 76, 456, 420, 2, C.mint);
-  text(s, "独家总冠名合作提案", 76, 486, 520, 48, 28, C.white, true);
-  text(s, "为带给你阳光的人奔跑", 76, 584, 520, 38, 24, C.mint, false);
+  text(s, "鹏飞集团杯", 76, 74, 540, 48, 30, C.lime, true);
+  text(s, "氢筑新程\n马拉松", 72, 146, 570, 190, 72, C.white, true);
+  text(s, "绿色产业 × 公益奔跑", 76, 382, 560, 52, 36, C.mint, true);
+  rect(s, 76, 472, 410, 3, C.green);
+  text(s, "独家总冠名合作提案", 76, 494, 520, 50, 30, C.white, true);
+  text(s, "让每一步都有力量", 76, 586, 520, 44, 28, C.mint, true);
 }
 
-// 02 赛事价值：一个核心结论 + 3 个价值支点。
+// 02 赛事理念：大图主导，三词说明赛事为何值得做。
 {
   const s = deck.slides.add();
   s.background.fill = C.cream;
-  header(s, "01 / 赛事价值", "这场赛事，让品牌影响力与社会价值同向增长", 2);
-  await image(s, assets.runner, 72, 194, 530, 420, "cover", true);
-  metric(s, "100%", "报名费捐赠点爱基金", 650, 200, 500, C.green);
-  bullet(s, "绿色", "氢能理念进入真实赛事场景", 650, 350, 500);
-  bullet(s, "公益", "每一次报名都形成可追踪善意", 650, 442, 500);
-  bullet(s, "城市", "跑者、媒体与消费场景集中汇聚", 650, 534, 500);
+  header(s, "01 / 赛事理念", "一场奔跑，连接绿色、公益与城市", 2);
+  await image(s, assets.runner, 72, 184, 650, 430, "cover", true);
+  bigCard(s, "GREEN", "绿色\n让产业理念被看见", 760, 184, 448, 126);
+  bigCard(s, "LOVE", "公益\n让品牌温度被感知", 760, 330, 448, 126);
+  bigCard(s, "CITY", "城市\n让赛事流量被激活", 760, 476, 448, 138);
   footer(s);
 }
 
-// 03 鹏飞合作价值：用一句商业结论统领五项目标。
+// 03 鹏飞合作价值：只保留三项最关键的品牌回报。
 {
   const s = deck.slides.add();
   s.background.fill = C.ink;
-  header(s, "02 / 鹏飞合作价值", "一次冠名，带动五个品牌目标", 3, true);
-  text(s, "不止获得曝光，更让鹏飞产业价值被理解、体验与转化。", 72, 160, 1080, 50, 28, C.mint, false);
+  header(s, "02 / 鹏飞合作价值", "一次冠名，激活三类长期价值", 3, true);
   const items = [
-    ["01", "氢能主业", "场景化传播"],
-    ["02", "文旅资源", "持续引流"],
-    ["03", "高端酒店", "客源转化"],
-    ["04", "企业责任", "可视化"],
-    ["05", "高端圈层", "有效链接"],
+    ["01", "产业认知", "氢能实力进入公众视野"],
+    ["02", "消费转化", "文旅酒店承接赛事流量"],
+    ["03", "品牌声誉", "公益行动沉淀社会信任"],
   ];
   items.forEach(([n, a, b], i) => {
-    const x = 72 + i * 226;
-    text(s, n, x, 250, 180, 50, 38, C.lime, true);
-    rect(s, x, 316, 180, 2, C.green);
-    text(s, a, x, 338, 190, 48, 27, C.white, true);
-    text(s, b, x, 392, 190, 42, 24, C.mint, false);
+    const x = 72 + i * 378;
+    rect(s, x, 196, 340, 344, i === 1 ? C.green : "#17372F", true, C.green);
+    text(s, n, x + 28, 222, 88, 58, 42, C.lime, true);
+    text(s, a, x + 28, 310, 284, 56, 36, C.white, true);
+    text(s, b, x + 28, 398, 284, 92, 28, C.mint, true);
   });
-  text(s, "产业实力被看见  ·  责任担当被感知  ·  消费场景被激活", 72, 542, 1100, 62, 34, C.white, true);
+  text(s, "被看见  ·  被理解  ·  被选择", 72, 582, 1136, 54, 38, C.white, true, { align: "center" });
   footer(s, true);
 }
 
-// 04 价值闭环：强调长期回报。
+// 04 赛事经济价值：以一张城市图和三条转化路径表达。
 {
   const s = deck.slides.add();
   s.background.fill = C.white;
-  header(s, "02 / 鹏飞合作价值", "赛事流量不是终点，而是产业联动的起点", 4);
-  await image(s, assets.city, 770, 188, 438, 420, "cover", true);
-  const steps = [["赛事流量", "聚集"], ["品牌认知", "沉淀"], ["氢能体验", "理解"], ["文旅酒店", "转化"], ["公益声誉", "复利"]];
-  steps.forEach(([a, b], i) => {
-    const y = 196 + i * 84;
-    text(s, String(i + 1).padStart(2, "0"), 82, y, 54, 42, 24, C.green, true);
-    text(s, a, 154, y, 240, 42, 30, C.ink, true);
-    text(s, b, 420, y, 110, 42, 24, C.gray, false);
-    if (i < 4) rect(s, 154, y + 60, 390, 1, C.light);
-  });
-  text(s, "长期回报", 548, 520, 170, 40, 24, C.green, true);
-  text(s, "从看见鹏飞，到选择鹏飞", 82, 610, 660, 44, 30, C.green, true);
+  header(s, "03 / 赛事经济价值", "赛事流量，为文旅消费创造真实入口", 4);
+  await image(s, assets.city, 690, 184, 518, 430, "cover", true);
+  bigCard(s, "跑者抵达", "住宿\n酒店客源", 72, 184, 280, 184);
+  bigCard(s, "城市停留", "游览\n景区联动", 376, 184, 280, 184);
+  bigCard(s, "赛后延展", "消费\n权益核销", 72, 392, 584, 222, true);
   footer(s);
 }
 
-// 05 赛事体验：大图 + 四条短句。
+// 05 公益价值：报名、捐赠、传播形成清晰闭环。
 {
   const s = deck.slides.add();
   s.background.fill = C.cream;
-  header(s, "03 / 赛事体验", "四条体验线，让理念在现场被看见", 5);
-  await image(s, assets.smile, 72, 190, 600, 430, "cover", true);
-  bullet(s, "绿色赛道", "低碳补给与清洁能源保障", 720, 198, 450);
-  bullet(s, "阳光致敬", "写下一个名字，讲述一段感恩", 720, 294, 450);
-  bullet(s, "公益捐赠", "报名即参与，结果可公示", 720, 390, 450);
-  bullet(s, "城市文旅", "赛事连接景区、酒店与消费", 720, 486, 450);
+  header(s, "04 / 公益价值", "每一次报名，都转化为一份真实善意", 5);
+  await image(s, assets.smile, 72, 184, 550, 430, "cover", true);
+  text(s, "100%", 682, 190, 470, 106, 72, C.green, true);
+  text(s, "报名费捐赠点爱基金", 686, 290, 490, 52, 36, C.ink, true);
+  bullet(s, "报名即公益", "参与门槛更低", 686, 382, 470);
+  bullet(s, "结果可公示", "行动真实可信", 686, 490, 470);
+  text(s, "让公益不是口号，而是可见行动", 72, 626, 1136, 42, 32, C.green, true, { align: "center" });
   footer(s);
 }
 
-// 06 冠名权益总览：六项权益用 3×2 大块表达。
+// 06 冠名权益：从六项压缩为三类核心资产。
 {
   const s = deck.slides.add();
   s.background.fill = C.ink;
-  header(s, "04 / 独家冠名权益", "六大权益，覆盖赛事全链路", 6, true);
-  const items = ["独家名称权", "全场景视觉", "综合体验区", "领导礼遇", "全媒体传播", "产业联动"];
-  items.forEach((label, i) => {
-    const col = i % 3, row = Math.floor(i / 3);
-    const x = 72 + col * 378, y = 198 + row * 188;
-    rect(s, x, y, 340, 150, row === 0 ? "#16483D" : "#13352E", true, C.green);
-    text(s, String(i + 1).padStart(2, "0"), x + 26, y + 22, 64, 42, 26, C.lime, true);
-    text(s, label, x + 26, y + 72, 285, 48, 30, C.white, true);
-  });
-  text(s, "名称绑定 → 现场体验 → 传播扩散 → 产业转化", 72, 594, 1120, 48, 30, C.mint, true);
-  footer(s, true);
-}
-
-// 07 触点覆盖：以时间轴替代物料清单。
-{
-  const s = deck.slides.add();
-  s.background.fill = C.white;
-  header(s, "04 / 独家冠名权益", "鹏飞品牌覆盖跑者旅程的每个关键触点", 7);
-  const data = [
-    ["赛前", "赛事全称\n官宣与报名"],
-    ["到场", "主视觉\n起终点与道旗"],
-    ["参赛", "参赛服\n号码布与参赛包"],
-    ["完赛", "奖牌证书\n颁奖与赛后专题"],
+  header(s, "05 / 独家冠名权益", "三类核心权益，贯穿赛事全程", 6, true);
+  const items = [
+    ["身份", "赛事全称绑定\n核心发起者"],
+    ["场景", "主视觉与现场\n全链路露出"],
+    ["传播", "全媒体内容\n持续扩散"],
   ];
-  rect(s, 130, 346, 950, 4, C.green);
-  data.forEach(([a, b], i) => {
-    const x = 96 + i * 290;
-    rect(s, x + 22, 326, 44, 44, i === 3 ? C.lime : C.green, true);
-    text(s, a, x, 214, 180, 52, 32, C.ink, true);
-    text(s, b, x, 392, 210, 112, 26, C.gray, false);
+  items.forEach(([tag, body], i) => {
+    const x = 72 + i * 378;
+    rect(s, x, 194, 340, 360, i === 0 ? C.green : "#17372F", true, C.green);
+    text(s, tag, x + 30, 226, 280, 48, 30, C.lime, true);
+    text(s, body, x + 30, 308, 280, 128, 36, C.white, true);
+    text(s, ["唯一名称权", "高频视觉触点", "长周期品牌声量"][i], x + 30, 476, 280, 48, 28, C.mint, true);
   });
-  text(s, "从第一次看见，到完赛后二次传播", 72, 568, 1000, 54, 36, C.green, true);
+  text(s, "名称绑定 → 现场体验 → 内容传播", 72, 590, 1136, 50, 34, C.white, true, { align: "center" });
+  footer(s, true);
+}
+
+// 07 品牌触点：四个时刻、一条跑者旅程。
+{
+  const s = deck.slides.add();
+  s.background.fill = C.white;
+  header(s, "05 / 品牌触点", "鹏飞，陪伴跑者完成整段赛事旅程", 7);
+  const data = [
+    ["赛前", "官宣报名"],
+    ["到场", "主视觉"],
+    ["参赛", "服装号码布"],
+    ["完赛", "奖牌与故事"],
+  ];
+  rect(s, 132, 350, 920, 6, C.green, true);
+  data.forEach(([a, b], i) => {
+    const x = 90 + i * 286;
+    rect(s, x + 28, 326, 54, 54, i === 3 ? C.lime : C.green, true);
+    text(s, a, x, 220, 180, 54, 34, C.ink, true, { align: "center" });
+    text(s, b, x - 12, 410, 220, 62, 30, C.gray, true, { align: "center" });
+  });
+  text(s, "从第一次看见，到完赛后二次传播", 72, 560, 1136, 60, 40, C.green, true, { align: "center" });
   footer(s);
 }
 
-// 08 领导汇报页：突出发起者身份与礼遇。
+// 08 AI 视频：画面占主体，只展示三步成片逻辑。
 {
   const s = deck.slides.add();
   s.background.fill = C.cream;
-  header(s, "04 / 独家冠名权益", "让鹏飞成为赛事舞台上的核心发起者", 8);
-  await image(s, assets.celebrate, 72, 190, 610, 430, "cover", true);
-  bullet(s, "开幕式", "集团领导致辞并鸣枪起跑", 730, 204, 440);
-  bullet(s, "颁奖礼", "为获奖选手颁奖", 730, 298, 440);
-  bullet(s, "媒体场", "重点口播、采访与专属接待", 730, 392, 440);
-  bullet(s, "公益场", "捐赠仪式与成果发布", 730, 486, 440);
+  header(s, "06 / AI 视频展示", "赛事照片，快速生成传播短片", 8);
+  await image(s, assets.start, 72, 184, 690, 430, "cover", true);
+  rect(s, 94, 526, 646, 66, "#10231FCC", true);
+  text(s, "15 秒横版宣传片", 116, 536, 602, 46, 32, C.white, true);
+  bigCard(s, "01", "识别\n人物与场景", 798, 184, 410, 126);
+  bigCard(s, "02", "编排\n节奏与字幕", 798, 330, 410, 126);
+  bigCard(s, "03", "输出\n多渠道成片", 798, 476, 410, 138, true);
   footer(s);
 }
 
-// 09 AI 文创：真实成品大图网格，文字只保留结论。
+// 09 AI 文创：视觉基准页，图片占主要区域。
 {
   const s = deck.slides.add();
   s.background.fill = C.ink;
-  header(s, "05 / AI 文创展示", "一套视觉资产，快速覆盖赛事传播全场景", 9, true);
+  header(s, "07 / AI 文创展示", "一套视觉资产，覆盖赛事传播全场景", 9, true);
   const cards = [
     [assets.poster, "主视觉海报"],
     [assets.mascot, "赛事 IP"],
@@ -257,67 +255,67 @@ const deck = Presentation.create({ slideSize: { width: W, height: H } });
   ];
   for (let i = 0; i < cards.length; i++) {
     const x = 72 + i * 286;
-    rect(s, x, 184, 258, 376, C.white, true);
+    rect(s, x, 184, 258, 382, C.white, true);
     await image(s, cards[i][0], x + 12, 196, 234, 292, "contain", true);
-    text(s, cards[i][1], x + 16, 500, 226, 46, 26, C.ink, true, { align: "center" });
+    text(s, cards[i][1], x + 14, 502, 230, 48, 28, C.ink, true, { align: "center" });
   }
-  text(s, "统一主题  ·  快速迭代  ·  多渠道复用", 72, 594, 1120, 48, 30, C.mint, true);
+  text(s, "统一主题  ·  快速迭代  ·  多渠道复用", 72, 598, 1136, 48, 32, C.mint, true, { align: "center" });
   footer(s, true);
 }
 
-// 10 传播：三阶段，只展示关键任务。
+// 10 传播合作：每阶段只保留两个核心动作。
 {
   const s = deck.slides.add();
   s.background.fill = C.white;
-  header(s, "06 / 传播合作", "赛前蓄势、赛中引爆、赛后沉淀", 10);
+  header(s, "08 / 传播合作", "赛前蓄势、赛中引爆、赛后沉淀", 10);
   const blocks = [
-    ["01", "赛前蓄势", "冠名官宣\n报名启动\n阳光故事征集"],
-    ["02", "赛中引爆", "赛事直播\n短视频共创\n媒体采访"],
-    ["03", "赛后沉淀", "成绩发布\n捐赠公示\n品牌纪录片"],
+    ["01", "赛前蓄势", "冠名官宣\n阳光故事"],
+    ["02", "赛中引爆", "赛事直播\n短视频共创"],
+    ["03", "赛后沉淀", "捐赠公示\n品牌纪录片"],
   ];
   blocks.forEach(([n, a, b], i) => {
     const x = 72 + i * 378;
-    rect(s, x, 196, 340, 380, i === 1 ? C.green : C.cream, true);
-    text(s, n, x + 28, 224, 90, 62, 44, i === 1 ? C.lime : C.green, true);
-    text(s, a, x + 28, 304, 280, 52, 32, i === 1 ? C.white : C.ink, true);
-    text(s, b, x + 28, 386, 280, 142, 26, i === 1 ? C.white : C.gray, false);
+    const dark = i === 1;
+    rect(s, x, 194, 340, 376, dark ? C.green : C.cream, true);
+    text(s, n, x + 30, 222, 90, 62, 46, dark ? C.lime : C.green, true);
+    text(s, a, x + 30, 310, 280, 54, 34, dark ? C.white : C.ink, true);
+    text(s, b, x + 30, 404, 280, 112, 30, dark ? C.white : C.gray, true);
   });
   footer(s);
 }
 
-// 11 合作方式：三种方案与明确下一步。
+// 11 合作建议：三种方式，一条明确行动。
 {
   const s = deck.slides.add();
   s.background.fill = C.cream;
-  header(s, "07 / 合作建议", "合作方式可组合，核心权益保持清晰", 11);
+  header(s, "09 / 合作建议", "三种合作方式，匹配不同投入策略", 11);
   const blocks = [
-    ["首选", "独家现金总冠名", "完整总冠名\n＋产业联动权益"],
-    ["灵活", "现金＋资源置换", "现金投入\n＋门票／房券资源"],
-    ["长期", "年度战略合作", "延展徒步、商会\n与系列公益活动"],
+    ["首选", "独家现金\n总冠名"],
+    ["灵活", "现金＋资源\n组合投入"],
+    ["长期", "年度战略\n持续合作"],
   ];
-  blocks.forEach(([tag, a, b], i) => {
+  blocks.forEach(([tag, title], i) => {
     const x = 72 + i * 378;
-    rect(s, x, 196, 340, 310, i === 0 ? C.ink : C.white, true, i === 0 ? C.ink : C.light);
-    text(s, tag, x + 28, 224, 120, 36, 24, i === 0 ? C.lime : C.green, true);
-    text(s, a, x + 28, 286, 284, 82, 30, i === 0 ? C.white : C.ink, true);
-    text(s, b, x + 28, 392, 284, 78, 24, i === 0 ? C.mint : C.gray, false);
+    bigCard(s, tag, title, x, 194, 340, 286, i === 0);
   });
-  rect(s, 72, 548, 1136, 82, C.green, true);
-  text(s, "下一步：确认赛事基础信息、合作投入与鹏飞品牌资产", 104, 563, 1070, 50, 30, C.white, true);
+  rect(s, 72, 526, 1136, 100, C.green, true);
+  text(s, "下一步：确认投入方式与核心权益", 104, 544, 1072, 62, 36, C.white, true, { align: "center" });
   footer(s);
 }
 
-// 12 总结：回应首页，以清晰行动收束。
+// 12 结语：回到绿色、公益、回报三个关键词。
 {
   const s = deck.slides.add();
   s.background.fill = C.ink;
-  await image(s, assets.finish, 760, 0, 520, 720, "cover");
+  await image(s, assets.finish, 720, 0, 560, 720, "cover");
   rect(s, 0, 0, 20, 720, C.lime);
-  text(s, "携手鹏飞集团", 76, 82, 600, 48, 30, C.lime, true);
-  text(s, "以氢筑新程\n以爱抵达远方", 72, 152, 640, 180, 62, C.white, true);
-  text(s, "绿色产业被看见\n企业担当被感知\n赛事流量被转化", 76, 376, 560, 142, 30, C.mint, true);
-  rect(s, 76, 564, 470, 2, C.green);
-  text(s, "共同打造一场有影响力、有温度、有回报的标杆赛事", 76, 582, 600, 58, 26, C.white, true);
+  text(s, "携手鹏飞集团", 76, 80, 560, 50, 30, C.lime, true);
+  text(s, "以氢筑新程\n以爱抵达远方", 72, 150, 610, 180, 62, C.white, true);
+  text(s, "绿色产业被看见", 76, 384, 560, 46, 32, C.mint, true);
+  text(s, "公益担当被感知", 76, 442, 560, 46, 32, C.mint, true);
+  text(s, "赛事流量被转化", 76, 500, 560, 46, 32, C.mint, true);
+  rect(s, 76, 584, 470, 3, C.green);
+  text(s, "共建有影响力、有温度、有回报的标杆赛事", 76, 600, 590, 54, 28, C.white, true);
 }
 
 async function main() {

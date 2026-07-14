@@ -1,0 +1,537 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/pvmuzi",
+    "id": "pvmuzi",
+    "slide": 12,
+    "layoutId": "15b1b663-8318-4cb2-971e-a1970fc18d23",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "62f87401-083a-4ca2-b822-bda3e2ca611f",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#10231F",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "+mn-lt"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "15b1b663-8318-4cb2-971e-a1970fc18d23",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "62f87401-083a-4ca2-b822-bda3e2ca611f",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "62f87401-083a-4ca2-b822-bda3e2ca611f",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/0z2lkn2p",
+      "id": "1",
+      "bbox": [
+        720,
+        0,
+        560,
+        720
+      ],
+      "geometry": "rect",
+      "alt": "07-finish.jpg",
+      "contentType": "image/jpeg",
+      "imageFit": "cover",
+      "imageMask": {
+        "geometry": "rect"
+      },
+      "asset": {
+        "assetId": "e38d7bcb-4181-43e2-a38c-83755f9e4eeb",
+        "contentType": "image/jpeg",
+        "byteLength": 1365798
+      }
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2tsnel0r",
+      "id": "2",
+      "bbox": [
+        0,
+        0,
+        20,
+        720
+      ],
+      "geometry": "rect",
+      "fillColor": "#D9F35A",
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/nu1o7qhc",
+      "id": "3",
+      "bbox": [
+        76,
+        80,
+        560,
+        50
+      ],
+      "geometry": "rect",
+      "text": "携手鹏飞集团",
+      "textPreview": "携手鹏飞集团",
+      "resolvedFontSize": 30,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 30,
+        "typeface": "+mn-lt",
+        "color": "#D9F35A",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "携手鹏飞集团"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "携手鹏飞集团",
+          "resolvedTextStyle": {
+            "fontSize": 30,
+            "color": "#D9F35A",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "携手鹏飞集团",
+              "fontSize": 30,
+              "color": "#D9F35A",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/czu5kvit",
+      "id": "4",
+      "bbox": [
+        72,
+        150,
+        610,
+        180
+      ],
+      "geometry": "rect",
+      "text": "以氢筑新程\n以爱抵达远方",
+      "textPreview": "以氢筑新程 | 以爱抵达远方",
+      "resolvedFontSize": 62,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 62,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "以氢筑新程"
+          },
+          {
+            "index": 2,
+            "text": "以爱抵达远方"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "以氢筑新程",
+          "resolvedTextStyle": {
+            "fontSize": 62,
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "以氢筑新程",
+              "fontSize": 62,
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "以爱抵达远方",
+          "resolvedTextStyle": {
+            "fontSize": 62,
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "以爱抵达远方",
+              "fontSize": 62,
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/x036d0ze",
+      "id": "5",
+      "bbox": [
+        76,
+        384,
+        560,
+        46
+      ],
+      "geometry": "rect",
+      "text": "绿色产业被看见",
+      "textPreview": "绿色产业被看见",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "color": "#9DDEC9",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "绿色产业被看见"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "绿色产业被看见",
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "color": "#9DDEC9",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "绿色产业被看见",
+              "fontSize": 32,
+              "color": "#9DDEC9",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/axcni50n",
+      "id": "6",
+      "bbox": [
+        76,
+        442,
+        560,
+        46
+      ],
+      "geometry": "rect",
+      "text": "公益担当被感知",
+      "textPreview": "公益担当被感知",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "color": "#9DDEC9",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "公益担当被感知"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "公益担当被感知",
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "color": "#9DDEC9",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "公益担当被感知",
+              "fontSize": 32,
+              "color": "#9DDEC9",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bylobqh8",
+      "id": "7",
+      "bbox": [
+        76,
+        500,
+        560,
+        46
+      ],
+      "geometry": "rect",
+      "text": "赛事流量被转化",
+      "textPreview": "赛事流量被转化",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 32,
+        "typeface": "+mn-lt",
+        "color": "#9DDEC9",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "赛事流量被转化"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "赛事流量被转化",
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "color": "#9DDEC9",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "赛事流量被转化",
+              "fontSize": 32,
+              "color": "#9DDEC9",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/k3epofi5",
+      "id": "8",
+      "bbox": [
+        76,
+        584,
+        470,
+        3
+      ],
+      "geometry": "rect",
+      "fillColor": "#0B7358",
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lon6hkza",
+      "id": "9",
+      "bbox": [
+        76,
+        600,
+        590,
+        54
+      ],
+      "geometry": "rect",
+      "text": "共建有影响力、有温度、有回报的标杆赛事",
+      "textPreview": "共建有影响力、有温度、有回报的标杆赛事",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 28,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "共建有影响力、有温度、有回报的标杆赛事"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "共建有影响力、有温度、有回报的标杆赛事",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "共建有影响力、有温度、有回报的标杆赛事",
+              "fontSize": 28,
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

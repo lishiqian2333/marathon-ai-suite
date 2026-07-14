@@ -1,0 +1,990 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/nprh1q",
+    "id": "nprh1q",
+    "slide": 7,
+    "layoutId": "15b1b663-8318-4cb2-971e-a1970fc18d23",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "62f87401-083a-4ca2-b822-bda3e2ca611f",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FFFFFF",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "+mn-lt"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "15b1b663-8318-4cb2-971e-a1970fc18d23",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "62f87401-083a-4ca2-b822-bda3e2ca611f",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "62f87401-083a-4ca2-b822-bda3e2ca611f",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4r2d8zyd",
+      "id": "1",
+      "bbox": [
+        72,
+        28,
+        520,
+        30
+      ],
+      "geometry": "rect",
+      "text": "05 / 品牌触点",
+      "textPreview": "05 / 品牌触点",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 22,
+        "typeface": "+mn-lt",
+        "color": "#0B7358",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "05 / 品牌触点"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "05 / 品牌触点",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "color": "#0B7358",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "05 / 品牌触点",
+              "fontSize": 22,
+              "color": "#0B7358",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3qtczehs",
+      "id": "2",
+      "bbox": [
+        72,
+        66,
+        1120,
+        82
+      ],
+      "geometry": "rect",
+      "text": "鹏飞，陪伴跑者完成整段赛事旅程",
+      "textPreview": "鹏飞，陪伴跑者完成整段赛事旅程",
+      "resolvedFontSize": 50,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 50,
+        "typeface": "+mn-lt",
+        "color": "#10231F",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "鹏飞，陪伴跑者完成整段赛事旅程"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "鹏飞，陪伴跑者完成整段赛事旅程",
+          "resolvedTextStyle": {
+            "fontSize": 50,
+            "color": "#10231F",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "鹏飞，陪伴跑者完成整段赛事旅程",
+              "fontSize": 50,
+              "color": "#10231F",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ipkv69g7",
+      "id": "3",
+      "bbox": [
+        1150,
+        28,
+        58,
+        30
+      ],
+      "geometry": "rect",
+      "text": "07",
+      "textPreview": "07",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 22,
+        "typeface": "+mn-lt",
+        "color": "#0B7358",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "07"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "07",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "color": "#0B7358",
+            "bold": true,
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "07",
+              "fontSize": 22,
+              "color": "#0B7358",
+              "bold": true,
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hobux4zm",
+      "id": "4",
+      "bbox": [
+        132,
+        350,
+        920,
+        6
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#0B7358",
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gn2d4zy1",
+      "id": "5",
+      "bbox": [
+        118,
+        326,
+        54,
+        54
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#0B7358",
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vm9cvuhw",
+      "id": "6",
+      "bbox": [
+        90,
+        220,
+        180,
+        54
+      ],
+      "geometry": "rect",
+      "text": "赛前",
+      "textPreview": "赛前",
+      "resolvedFontSize": 34,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 34,
+        "typeface": "+mn-lt",
+        "color": "#10231F",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "赛前"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "赛前",
+          "resolvedTextStyle": {
+            "fontSize": 34,
+            "color": "#10231F",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "赛前",
+              "fontSize": 34,
+              "color": "#10231F",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ul0v2pgb",
+      "id": "7",
+      "bbox": [
+        78,
+        410,
+        220,
+        62
+      ],
+      "geometry": "rect",
+      "text": "官宣报名",
+      "textPreview": "官宣报名",
+      "resolvedFontSize": 30,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 30,
+        "typeface": "+mn-lt",
+        "color": "#5E6D68",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "官宣报名"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "官宣报名",
+          "resolvedTextStyle": {
+            "fontSize": 30,
+            "color": "#5E6D68",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "官宣报名",
+              "fontSize": 30,
+              "color": "#5E6D68",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/tkrutkzq",
+      "id": "8",
+      "bbox": [
+        404,
+        326,
+        54,
+        54
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#0B7358",
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8jid0fi5",
+      "id": "9",
+      "bbox": [
+        376,
+        220,
+        180,
+        54
+      ],
+      "geometry": "rect",
+      "text": "到场",
+      "textPreview": "到场",
+      "resolvedFontSize": 34,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 34,
+        "typeface": "+mn-lt",
+        "color": "#10231F",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "到场"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "到场",
+          "resolvedTextStyle": {
+            "fontSize": 34,
+            "color": "#10231F",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "到场",
+              "fontSize": 34,
+              "color": "#10231F",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/i9g3qdoz",
+      "id": "10",
+      "bbox": [
+        364,
+        410,
+        220,
+        62
+      ],
+      "geometry": "rect",
+      "text": "主视觉",
+      "textPreview": "主视觉",
+      "resolvedFontSize": 30,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 30,
+        "typeface": "+mn-lt",
+        "color": "#5E6D68",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "主视觉"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "主视觉",
+          "resolvedTextStyle": {
+            "fontSize": 30,
+            "color": "#5E6D68",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "主视觉",
+              "fontSize": 30,
+              "color": "#5E6D68",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ja94ji5k",
+      "id": "11",
+      "bbox": [
+        690,
+        326,
+        54,
+        54
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#0B7358",
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kbilsn65",
+      "id": "12",
+      "bbox": [
+        662,
+        220,
+        180,
+        54
+      ],
+      "geometry": "rect",
+      "text": "参赛",
+      "textPreview": "参赛",
+      "resolvedFontSize": 34,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 34,
+        "typeface": "+mn-lt",
+        "color": "#10231F",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "参赛"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "参赛",
+          "resolvedTextStyle": {
+            "fontSize": 34,
+            "color": "#10231F",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "参赛",
+              "fontSize": 34,
+              "color": "#10231F",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5wrmlsnq",
+      "id": "13",
+      "bbox": [
+        650,
+        410,
+        220,
+        62
+      ],
+      "geometry": "rect",
+      "text": "服装号码布",
+      "textPreview": "服装号码布",
+      "resolvedFontSize": 30,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 30,
+        "typeface": "+mn-lt",
+        "color": "#5E6D68",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "服装号码布"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "服装号码布",
+          "resolvedTextStyle": {
+            "fontSize": 30,
+            "color": "#5E6D68",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "服装号码布",
+              "fontSize": 30,
+              "color": "#5E6D68",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/a5g3mdo3",
+      "id": "14",
+      "bbox": [
+        976,
+        326,
+        54,
+        54
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#D9F35A",
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/v6p4fi5o",
+      "id": "15",
+      "bbox": [
+        948,
+        220,
+        180,
+        54
+      ],
+      "geometry": "rect",
+      "text": "完赛",
+      "textPreview": "完赛",
+      "resolvedFontSize": 34,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 34,
+        "typeface": "+mn-lt",
+        "color": "#10231F",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "完赛"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "完赛",
+          "resolvedTextStyle": {
+            "fontSize": 34,
+            "color": "#10231F",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "完赛",
+              "fontSize": 34,
+              "color": "#10231F",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/w7ylon6t",
+      "id": "16",
+      "bbox": [
+        936,
+        410,
+        220,
+        62
+      ],
+      "geometry": "rect",
+      "text": "奖牌与故事",
+      "textPreview": "奖牌与故事",
+      "resolvedFontSize": 30,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 30,
+        "typeface": "+mn-lt",
+        "color": "#5E6D68",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "奖牌与故事"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "奖牌与故事",
+          "resolvedTextStyle": {
+            "fontSize": 30,
+            "color": "#5E6D68",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "奖牌与故事",
+              "fontSize": 30,
+              "color": "#5E6D68",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/x87mh8ne",
+      "id": "17",
+      "bbox": [
+        72,
+        560,
+        1136,
+        60
+      ],
+      "geometry": "rect",
+      "text": "从第一次看见，到完赛后二次传播",
+      "textPreview": "从第一次看见，到完赛后二次传播",
+      "resolvedFontSize": 40,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 40,
+        "typeface": "+mn-lt",
+        "color": "#0B7358",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "从第一次看见，到完赛后二次传播"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "从第一次看见，到完赛后二次传播",
+          "resolvedTextStyle": {
+            "fontSize": 40,
+            "color": "#0B7358",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "从第一次看见，到完赛后二次传播",
+              "fontSize": 40,
+              "color": "#0B7358",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/m1w3itor",
+      "id": "18",
+      "bbox": [
+        72,
+        678,
+        660,
+        24
+      ],
+      "geometry": "rect",
+      "text": "鹏飞集团杯 · 氢筑新程马拉松",
+      "textPreview": "鹏飞集团杯 · 氢筑新程马拉松",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#5E6D68",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "鹏飞集团杯 · 氢筑新程马拉松"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "鹏飞集团杯 · 氢筑新程马拉松",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#5E6D68",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "鹏飞集团杯 · 氢筑新程马拉松",
+              "fontSize": 20,
+              "color": "#5E6D68",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}
